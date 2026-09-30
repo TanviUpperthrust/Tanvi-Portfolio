@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
+import { SEED_PROJECTS, SEED_TESTIMONIALS } from './seed.js';
+import { slugify } from './content.js';
 
 const SCHEMA = `
 CREATE TABLE IF NOT EXISTS messages (
@@ -42,21 +44,26 @@ CREATE TABLE IF NOT EXISTS testimonials (
   created_at  TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
   updated_at  TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
+
+CREATE TABLE IF NOT EXISTS settings (
+  key         TEXT PRIMARY KEY,
+  value       TEXT NOT NULL,
+  updated_at  TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+);
 `;
 
-// Matches the content that was hard-coded in index.html before the backend existed.
-const SEED_PROJECTS = [
-  { title: 'Paisa: Budgeting App', category: 'Mobile · Fintech · 2025', tags: ['Research', 'UI'], theme: 's1', layout: 'phone' },
-  { title: 'CareLink Dashboard', category: 'Web · Healthcare · 2025', tags: ['IA', 'Design system'], theme: 's2', layout: 'wide' },
-  { title: 'Chai & Co. Ordering', category: 'Mobile · F&B · 2024', tags: ['Prototyping', 'UI'], theme: 's3', layout: 'phone-profile' },
-  { title: 'Orbit: SaaS Analytics', category: 'Web · B2B SaaS · 2024', tags: ['UX audit', 'Redesign'], theme: 's4', layout: 'wide-sidebar' },
-];
-
-// *word* renders as italic serif emphasis on the site.
-const SEED_TESTIMONIALS = [
-  { quote: "Tanvi didn't just redesign our app, she *rethought* how our users manage money. Onboarding drop-off fell by half within a month.", name: 'Aarav Mehta', role: 'Founder, Paisa' },
-  { quote: "Her research uncovered problems we'd been blind to for years. The new dashboard feels *calm*, and our clinicians actually enjoy using it.", name: 'Dr. Neha Kapoor', role: 'Product Lead, CareLink' },
-  { quote: 'The design system she built is the reason we ship twice as fast. Clear docs, thoughtful tokens and a *joy* to work with.', name: 'Rohan Iyer', role: 'Engineering Manager, Orbit' },
+// Columns added after the first release. Added with ALTER TABLE so databases
+// created by an earlier version upgrade in place.
+const PROJECT_COLUMNS = [
+  ['slug', 'TEXT'],
+  ['summary', "TEXT NOT NULL DEFAULT ''"],
+  ['client', "TEXT NOT NULL DEFAULT ''"],
+  ['role', "TEXT NOT NULL DEFAULT ''"],
+  ['duration', "TEXT NOT NULL DEFAULT ''"],
+  ['challenge', "TEXT NOT NULL DEFAULT ''"],
+  ['approach', "TEXT NOT NULL DEFAULT ''"],
+  ['outcome', "TEXT NOT NULL DEFAULT ''"],
+  ['metrics', "TEXT NOT NULL DEFAULT '[]'"],
 ];
 
 export function openDatabase(file) {
@@ -64,14 +71,39 @@ export function openDatabase(file) {
   const db = new DatabaseSync(file);
   db.exec('PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON;');
   db.exec(SCHEMA);
+  migrate(db);
   seed(db);
   return db;
 }
 
+function migrate(db) {
+  const existing = new Set(db.prepare('PRAGMA table_info(projects)').all().map((c) => c.name));
+  for (const [name, def] of PROJECT_COLUMNS) {
+    if (!existing.has(name)) db.exec(`ALTER TABLE projects ADD COLUMN ${name} ${def}`);
+  }
+
+  // Give any project without a slug one derived from its title.
+  const missing = db.prepare("SELECT id, title FROM projects WHERE slug IS NULL OR slug = ''").all();
+  const taken = new Set(db.prepare("SELECT slug FROM projects WHERE slug IS NOT NULL AND slug <> ''").all().map((r) => r.slug));
+  const setSlug = db.prepare('UPDATE projects SET slug = ? WHERE id = ?');
+  for (const { id, title } of missing) {
+    const base = slugify(title) || `project-${id}`;
+    let slug = base;
+    for (let n = 2; taken.has(slug); n++) slug = `${base}-${n}`;
+    taken.add(slug);
+    setSlug.run(slug, id);
+  }
+  db.exec('CREATE UNIQUE INDEX IF NOT EXISTS projects_slug ON projects (slug)');
+}
+
 function seed(db) {
   if (db.prepare('SELECT COUNT(*) AS n FROM projects').get().n === 0) {
-    const insert = db.prepare('INSERT INTO projects (title, category, tags, theme, layout, sort_order) VALUES (?, ?, ?, ?, ?, ?)');
-    SEED_PROJECTS.forEach((p, i) => insert.run(p.title, p.category, JSON.stringify(p.tags), p.theme, p.layout, i));
+    const cols = ['title', 'slug', 'category', 'tags', 'theme', 'layout', 'summary', 'client', 'role', 'duration', 'challenge', 'approach', 'outcome', 'metrics', 'sort_order'];
+    const insert = db.prepare(`INSERT INTO projects (${cols.join(', ')}) VALUES (${cols.map(() => '?').join(', ')})`);
+    SEED_PROJECTS.forEach((p, i) => {
+      const row = { ...p, tags: JSON.stringify(p.tags), metrics: JSON.stringify(p.metrics), sort_order: i };
+      insert.run(...cols.map((c) => row[c]));
+    });
   }
   if (db.prepare('SELECT COUNT(*) AS n FROM testimonials').get().n === 0) {
     const insert = db.prepare('INSERT INTO testimonials (quote, name, role, sort_order) VALUES (?, ?, ?, ?)');

@@ -1,10 +1,7 @@
 import { Router } from 'express';
 import { validate } from '../validate.js';
 import { rateLimit } from '../rateLimit.js';
-import { contentTypes } from '../content.js';
-
-export const TOPICS = ['UX research', 'UI design', 'Full product design', 'Design system', 'Prototyping', 'Something else'];
-export const BUDGETS = ['Under ₹1L', '₹1L – ₹3L', '₹3L – ₹6L', '₹6L+', 'Not sure yet'];
+import { contentTypes, TOPICS, BUDGETS } from '../content.js';
 
 const contactSchema = {
   name: { type: 'string', required: true, max: 100 },
@@ -14,7 +11,7 @@ const contactSchema = {
   message: { type: 'string', required: true, min: 10, max: 5000 },
 };
 
-export function publicRoutes({ db, mailer }) {
+export function publicRoutes({ db, mailer, siteStore }) {
   const r = Router();
 
   r.get('/health', (req, res) => {
@@ -23,12 +20,25 @@ export function publicRoutes({ db, mailer }) {
   });
 
   for (const [path, type] of Object.entries(contentTypes)) {
-    const list = db.prepare(`SELECT id, ${type.columns.join(', ')} FROM ${type.table} WHERE published = 1 ORDER BY sort_order, id`);
+    const list = db.prepare(`SELECT id, ${type.listColumns.join(', ')} FROM ${type.table} WHERE published = 1 ORDER BY sort_order, id`);
     r.get(`/${path}`, (req, res) => {
       res.set('Cache-Control', 'public, max-age=60');
-      res.json(list.all().map(type.fromRow).map(({ published, sort_order, ...rest }) => rest));
+      res.json(list.all().map(type.fromRow));
     });
   }
+
+  const projectBySlug = db.prepare(`SELECT id, ${contentTypes.projects.columns.filter((c) => c !== 'published' && c !== 'sort_order').join(', ')} FROM projects WHERE slug = ? AND published = 1`);
+  r.get('/projects/:slug', (req, res) => {
+    const row = projectBySlug.get(req.params.slug);
+    if (!row) return res.status(404).json({ error: 'Not found.' });
+    res.set('Cache-Control', 'public, max-age=60');
+    res.json(contentTypes.projects.fromRow(row));
+  });
+
+  r.get('/site', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=60');
+    res.json(siteStore.get());
+  });
 
   r.get('/contact/options', (req, res) => res.json({ topics: TOPICS, budgets: BUDGETS }));
 

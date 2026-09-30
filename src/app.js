@@ -1,15 +1,16 @@
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import express from 'express';
 import { publicRoutes } from './routes/public.js';
 import { adminRoutes } from './routes/admin.js';
+import { pageRoutes } from './routes/pages.js';
 import { createAuth } from './auth.js';
+import { createSiteStore } from './site.js';
+import { PUBLIC_DIR } from './views/layout.js';
 
-const PUBLIC_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public');
-
+// All JavaScript lives in /assets, so inline scripts are blocked outright.
+// Inline *styles* stay allowed for the decorative glow/mockup style attributes.
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self'",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   'font-src https://fonts.gstatic.com',
   "img-src 'self' data:",
@@ -17,11 +18,13 @@ const CSP = [
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
+  "object-src 'none'",
 ].join('; ');
 
 export function createApp({ config, db, mailer }) {
   const app = express();
   const auth = createAuth(config);
+  const siteStore = createSiteStore(db);
 
   app.disable('x-powered-by');
   if (config.trustProxy) app.set('trust proxy', 1);
@@ -36,15 +39,18 @@ export function createApp({ config, db, mailer }) {
     next();
   });
 
-  app.use('/api', express.json({ limit: '32kb' }));
-  app.use('/api', publicRoutes({ db, mailer }));
+  app.use('/api', express.json({ limit: '64kb' }));
+  app.use('/api', publicRoutes({ db, mailer, siteStore }));
   app.use('/api/admin', (req, res, next) => {
     res.set('Cache-Control', 'no-store');
     next();
-  }, adminRoutes({ db, auth }));
+  }, adminRoutes({ db, auth, siteStore }));
   app.use('/api', (req, res) => res.status(404).json({ error: 'Not found.' }));
 
-  app.use(express.static(PUBLIC_DIR, { extensions: ['html'], maxAge: '1h' }));
+  // Asset URLs carry a ?v= version, so they can be cached for a long time.
+  app.use('/assets', express.static(`${PUBLIC_DIR}/assets`, { maxAge: '30d', fallthrough: true }));
+  app.use(express.static(PUBLIC_DIR, { extensions: ['html'], index: false, maxAge: '1h' }));
+  app.use(pageRoutes({ db, siteStore, config }));
 
   app.use((err, req, res, next) => {
     if (res.headersSent) return next(err);

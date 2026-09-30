@@ -8,107 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-:root {
-  --bg: #FBF9FF; --bg-2: #F3EEFD; --surface: #FFFFFF;
-  --border: rgba(60, 30, 120, 0.12); --text: #120F1F; --muted: #5E5873; --faint: #938CA8;
-  --violet: #8B3DFF; --pink: #E84FD9; --indigo: #4F5BFF;
-  --grad: linear-gradient(100deg, var(--indigo), var(--violet) 45%, var(--pink));
-  --danger: #D2336B;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #07060D; --bg-2: #100D1C; --surface: #16122A;
-    --border: rgba(200, 170, 255, 0.12); --text: #F3F0FA; --muted: #A8A1BD; --faint: #6C6585;
-    --danger: #FF6B9A;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #07060D; --bg-2: #100D1C; --surface: #16122A;
-  --border: rgba(200, 170, 255, 0.12); --text: #F3F0FA; --muted: #A8A1BD; --faint: #6C6585;
-  --danger: #FF6B9A;
-}
-*, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-a { color: inherit; }
-button { font: inherit; cursor: pointer; }
-.wrap { width: min(980px, 100% - 32px); margin: 0 auto; padding: 32px 0 80px; }
-.serif { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; }
-h1 { font-size: 32px; font-weight: 500; letter-spacing: -.02em; margin: 0; }
-.muted { color: var(--muted); }
-.hidden { display: none !important; }
-
-.btn { border: 0; border-radius: 999px; padding: 9px 18px; font-weight: 600; font-size: 14px; background: var(--text); color: var(--bg); }
-.btn:hover { background: var(--violet); color: #fff; }
-.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
-.btn.ghost:hover { border-color: var(--violet); color: var(--violet); background: transparent; }
-.btn.danger { background: transparent; color: var(--danger); border: 1px solid var(--border); }
-.btn.danger:hover { border-color: var(--danger); background: transparent; }
-.btn.sm { padding: 6px 12px; font-size: 13px; }
-.btn[disabled] { opacity: .5; cursor: progress; }
-
-/* Login */
-.login { min-height: 100vh; display: grid; place-items: center; padding: 16px; }
-.login form { width: min(380px, 100%); background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 32px; display: grid; gap: 16px; }
-.login h1 { font-size: 28px; }
-
-/* Header + tabs */
-.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
-.top .actions { display: flex; gap: 8px; }
-.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 24px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
-.tab { background: none; border: 0; padding: 10px 16px; color: var(--muted); font-weight: 600; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; }
-.tab[aria-selected="true"] { color: var(--text); border-color: var(--violet); }
-.badge { display: inline-block; min-width: 20px; padding: 0 6px; margin-left: 6px; border-radius: 999px; background: var(--grad); color: #fff; font-size: 12px; line-height: 20px; text-align: center; }
-
-.toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
-.toolbar label { display: inline-flex; gap: 8px; align-items: center; color: var(--muted); font-size: 14px; }
-
-/* Lists */
-.list { display: grid; gap: 10px; }
-.item { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
-.item-head { display: flex; gap: 14px; align-items: center; padding: 14px 18px; width: 100%; background: none; border: 0; color: inherit; text-align: left; }
-.item-head .main { flex: 1; min-width: 0; }
-.item-head .title { font-weight: 600; display: flex; gap: 8px; align-items: center; }
-.item-head .sub { color: var(--muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.item-head .when { color: var(--faint); font-size: 13px; white-space: nowrap; }
-.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--violet); flex: none; }
-.dot.read { background: transparent; border: 1px solid var(--border); }
-.item.unread .title { color: var(--text); }
-.item-body { padding: 0 18px 18px; border-top: 1px solid var(--border); }
-.meta-row { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--muted); padding: 14px 0; }
-.meta-row b { color: var(--text); font-weight: 600; }
-.msg-text { white-space: pre-wrap; word-wrap: break-word; background: var(--bg-2); border-radius: 12px; padding: 14px 16px; margin: 0 0 14px; }
-.row-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-.pill { font-size: 12px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); font-weight: 500; }
-.empty { text-align: center; padding: 48px 16px; color: var(--muted); border: 1px dashed var(--border); border-radius: 16px; }
-
-/* Editor */
-.editor { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 18px; }
-.editor .full { grid-column: 1 / -1; }
-.field { display: flex; flex-direction: column; gap: 6px; }
-.field > span { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; color: var(--muted); }
-.field small { color: var(--faint); font-size: 12px; }
-.field input, .field select, .field textarea {
-  font: inherit; color: var(--text); background: var(--bg-2); border: 1px solid var(--border);
-  border-radius: 12px; padding: 10px 12px; width: 100%;
-}
-.field textarea { min-height: 100px; resize: vertical; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--violet); }
-.field.invalid input, .field.invalid select, .field.invalid textarea { border-color: var(--danger); }
-.field .err { color: var(--danger); font-size: 12px; }
-.check { flex-direction: row; align-items: center; gap: 10px; }
-.check input { width: auto; }
-.editor .row-actions { grid-column: 1 / -1; justify-content: flex-end; }
-
-.toast { position: fixed; bottom: 20px; left: 50%; translate: -50% 0; background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 999px; font-size: 14px; opacity: 0; transition: opacity .25s; pointer-events: none; }
-.toast.show { opacity: 1; }
-.toast.bad { background: var(--danger); color: #fff; }
-
-@media (max-width: 640px) {
-  .editor { grid-template-columns: 1fr; }
-  .item-head .when { display: none; }
-}
-</style>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="/assets/css/admin.css" />
+<script src="/assets/js/theme.js"></script>
 </head>
 <body>
 
@@ -138,6 +40,7 @@ h1 { font-size: 32px; font-weight: 500; letter-spacing: -.02em; margin: 0; }
     <button class="tab" role="tab" data-tab="messages" aria-selected="true">Messages<span class="badge hidden" id="unreadBadge"></span></button>
     <button class="tab" role="tab" data-tab="projects" aria-selected="false">Projects</button>
     <button class="tab" role="tab" data-tab="testimonials" aria-selected="false">Testimonials</button>
+    <button class="tab" role="tab" data-tab="site" aria-selected="false">Site settings</button>
   </div>
 
   <section id="tab-messages">
@@ -163,306 +66,48 @@ h1 { font-size: 32px; font-weight: 500; letter-spacing: -.02em; margin: 0; }
     </div>
     <div class="list" id="list-testimonials"></div>
   </section>
+
+  <section id="tab-site" class="hidden">
+    <form id="siteForm" class="settings" novalidate>
+      <fieldset class="item">
+        <legend>Availability & contact</legend>
+        <div class="editor">
+          <label class="field full"><span>Status badge</span><input name="availability" maxlength="80" /><small>Shown at the top of the home page, e.g. "Open to new projects · 2026"</small><span class="err" data-err="availability"></span></label>
+          <label class="field check full"><input type="checkbox" name="available" /><span>Show the badge as available (pulsing dot)</span></label>
+          <label class="field"><span>Contact email</span><input name="email" type="email" maxlength="200" /><span class="err" data-err="email"></span></label>
+          <label class="field"><span>Location line</span><input name="location" maxlength="120" /><small>Shown in the footer</small><span class="err" data-err="location"></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="item">
+        <legend>Social links</legend>
+        <div class="editor">
+          <label class="field full"><span>LinkedIn</span><input name="linkedin" placeholder="https://www.linkedin.com/in/…" /><span class="err" data-err="linkedin"></span></label>
+          <label class="field"><span>Behance</span><input name="behance" placeholder="https://www.behance.net/…" /><span class="err" data-err="behance"></span></label>
+          <label class="field"><span>Dribbble</span><input name="dribbble" placeholder="https://dribbble.com/…" /><span class="err" data-err="dribbble"></span></label>
+          <small class="muted full">Links left empty are hidden on the site.</small>
+        </div>
+      </fieldset>
+
+      <fieldset class="item">
+        <legend>About stats</legend>
+        <div class="editor" id="statsFields"></div>
+      </fieldset>
+
+      <fieldset class="item">
+        <legend>"Kind words" highlights</legend>
+        <div class="editor" id="highlightFields"></div>
+      </fieldset>
+
+      <div class="row-actions settings-actions">
+        <button class="btn" type="submit">Save settings</button>
+      </div>
+    </form>
+  </section>
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script>
-(function () {
-  try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
-
-  var $ = function (s, el) { return (el || document).querySelector(s); };
-  function h(tag, attrs, children) {
-    var el = document.createElement(tag);
-    Object.keys(attrs || {}).forEach(function (k) {
-      if (k === 'class') el.className = attrs[k];
-      else if (k === 'text') el.textContent = attrs[k];
-      else if (k.slice(0, 2) === 'on') el.addEventListener(k.slice(2), attrs[k]);
-      else if (attrs[k] !== false && attrs[k] != null) el.setAttribute(k, attrs[k] === true ? '' : attrs[k]);
-    });
-    (children || []).forEach(function (c) { if (c) el.append(c); });
-    return el;
-  }
-
-  var toastTimer;
-  function toast(text, bad) {
-    var t = $('#toast');
-    t.textContent = text;
-    t.className = 'toast show' + (bad ? ' bad' : '');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { t.className = 'toast'; }, 2600);
-  }
-
-  function api(method, url, body) {
-    return fetch('/api/admin' + url, {
-      method: method,
-      headers: body ? { 'Content-Type': 'application/json' } : {},
-      body: body ? JSON.stringify(body) : undefined,
-      credentials: 'same-origin'
-    }).then(function (r) {
-      if (r.status === 401) { showLogin(); throw Object.assign(new Error('Signed out.'), { silent: true }); }
-      if (r.status === 204) return null;
-      return r.json().then(function (data) {
-        if (!r.ok) throw Object.assign(new Error(data.error || 'Request failed.'), { fields: data.fields });
-        return data;
-      });
-    });
-  }
-  function fail(err) { if (!err.silent) toast(err.message, true); }
-
-  /* ---------- Auth ---------- */
-  function showLogin() { $('#appView').classList.add('hidden'); $('#loginView').classList.remove('hidden'); }
-  function showApp() { $('#loginView').classList.add('hidden'); $('#appView').classList.remove('hidden'); loadMessages(); }
-
-  $('#loginForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    $('#loginErr').textContent = '';
-    api('POST', '/login', { password: e.target.password.value })
-      .then(function () { e.target.reset(); showApp(); })
-      .catch(function (err) { $('#loginErr').textContent = err.message; });
-  });
-  $('#logoutBtn').addEventListener('click', function () { api('POST', '/logout').then(showLogin).catch(fail); });
-
-  fetch('/api/admin/me').then(function (r) { return r.json(); })
-    .then(function (d) { d.authed ? showApp() : showLogin(); })
-    .catch(showLogin);
-
-  /* ---------- Tabs ---------- */
-  var loaded = {};
-  document.querySelectorAll('.tab').forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.tab').forEach(function (t) {
-        var on = t === tab;
-        t.setAttribute('aria-selected', on);
-        $('#tab-' + t.dataset.tab).classList.toggle('hidden', !on);
-      });
-      var name = tab.dataset.tab;
-      if (name === 'messages') loadMessages();
-      else if (!loaded[name]) loadContent(name);
-    });
-  });
-
-  /* ---------- Messages ---------- */
-  function fmtDate(iso) {
-    return new Date(iso).toLocaleString(undefined, { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
-  }
-
-  function loadMessages() {
-    var qs = $('#unreadOnly').checked ? '?unread=1&limit=200' : '?limit=200';
-    return api('GET', '/messages' + qs).then(function (data) {
-      var badge = $('#unreadBadge');
-      badge.textContent = data.unread;
-      badge.classList.toggle('hidden', !data.unread);
-      $('#msgCount').textContent = data.total + ' message' + (data.total === 1 ? '' : 's') + ', ' + data.unread + ' unread';
-      var list = $('#msgList');
-      list.replaceChildren();
-      if (!data.items.length) {
-        list.append(h('div', { class: 'empty', text: $('#unreadOnly').checked ? 'All caught up.' : 'No messages yet. They will appear here when someone uses the contact form.' }));
-        return;
-      }
-      data.items.forEach(function (m) { list.append(messageItem(m)); });
-    }).catch(fail);
-  }
-  $('#unreadOnly').addEventListener('change', loadMessages);
-
-  function messageItem(m) {
-    var item = h('div', { class: 'item' + (m.read_at ? '' : ' unread') });
-    var dot = h('span', { class: 'dot' + (m.read_at ? ' read' : '') });
-    var body = h('div', { class: 'item-body hidden' });
-    var head = h('button', { class: 'item-head', 'aria-expanded': 'false', onclick: function () {
-      var open = body.classList.toggle('hidden') === false;
-      head.setAttribute('aria-expanded', open);
-      if (open && !m.read_at) setRead(true);
-    } }, [
-      dot,
-      h('div', { class: 'main' }, [
-        h('div', { class: 'title' }, [m.name, m.topic ? h('span', { class: 'pill', text: m.topic }) : null]),
-        h('div', { class: 'sub', text: m.message })
-      ]),
-      h('span', { class: 'when', text: fmtDate(m.created_at) })
-    ]);
-
-    function setRead(read) {
-      return api('PATCH', '/messages/' + m.id, { read: read }).then(function (updated) {
-        m = updated;
-        dot.className = 'dot' + (read ? ' read' : '');
-        item.classList.toggle('unread', !read);
-        readBtn.textContent = read ? 'Mark unread' : 'Mark read';
-        refreshCounts();
-      }).catch(fail);
-    }
-
-    var subject = 'Re: ' + (m.topic ? m.topic + ' project' : 'your message');
-    var readBtn = h('button', { class: 'btn ghost sm', text: m.read_at ? 'Mark unread' : 'Mark read', onclick: function () { setRead(!m.read_at); } });
-    body.append(
-      h('div', { class: 'meta-row' }, [
-        h('span', {}, [h('b', { text: 'Email ' }), m.email]),
-        m.budget ? h('span', {}, [h('b', { text: 'Budget ' }), m.budget]) : null,
-        h('span', {}, [h('b', { text: 'Received ' }), fmtDate(m.created_at)]),
-        h('span', { text: m.emailed ? 'Email notification sent' : 'Not emailed' })
-      ]),
-      h('p', { class: 'msg-text', text: m.message }),
-      h('div', { class: 'row-actions' }, [
-        h('a', { class: 'btn sm', href: 'mailto:' + encodeURIComponent(m.email) + '?subject=' + encodeURIComponent(subject), text: 'Reply by email' }),
-        readBtn,
-        h('button', { class: 'btn danger sm', text: 'Delete', onclick: function () {
-          if (!confirm('Delete this message from ' + m.name + '? This cannot be undone.')) return;
-          api('DELETE', '/messages/' + m.id).then(function () { item.remove(); toast('Message deleted'); refreshCounts(); }).catch(fail);
-        } })
-      ])
-    );
-    item.append(head, body);
-    return item;
-  }
-
-  function refreshCounts() {
-    api('GET', '/messages?limit=1').then(function (d) {
-      $('#unreadBadge').textContent = d.unread;
-      $('#unreadBadge').classList.toggle('hidden', !d.unread);
-      $('#msgCount').textContent = d.total + ' message' + (d.total === 1 ? '' : 's') + ', ' + d.unread + ' unread';
-    }).catch(fail);
-  }
-
-  /* ---------- Projects & testimonials ---------- */
-  var FIELDS = {
-    projects: [
-      { key: 'title', label: 'Title', full: true },
-      { key: 'category', label: 'Category line', hint: 'e.g. Mobile · Fintech · 2025' },
-      { key: 'tags', label: 'Tags', hint: 'Comma separated' },
-      { key: 'url', label: 'Case study link', hint: 'https://… or leave empty', full: true },
-      { key: 'theme', label: 'Colour', type: 'select', options: [['s1', 'Violet → pink'], ['s2', 'Indigo → violet'], ['s3', 'Night → pink'], ['s4', 'Pink → lavender']] },
-      { key: 'layout', label: 'Mockup', type: 'select', options: [['phone', 'Phone'], ['wide', 'Wide screen'], ['phone-profile', 'Phone (profile)'], ['wide-sidebar', 'Wide (sidebar)']] },
-      { key: 'sort_order', label: 'Order', type: 'number' },
-      { key: 'published', label: 'Show on site', type: 'check' }
-    ],
-    testimonials: [
-      { key: 'quote', label: 'Quote', type: 'textarea', full: true, hint: 'Wrap a word in *asterisks* for italic emphasis' },
-      { key: 'name', label: 'Name' },
-      { key: 'role', label: 'Role & company' },
-      { key: 'sort_order', label: 'Order', type: 'number' },
-      { key: 'published', label: 'Show on site', type: 'check' }
-    ]
-  };
-  var DEFAULTS = {
-    projects: { title: '', category: '', tags: [], url: '', theme: 's1', layout: 'phone', sort_order: 0, published: true },
-    testimonials: { quote: '', name: '', role: '', sort_order: 0, published: true }
-  };
-
-  function loadContent(type) {
-    return api('GET', '/' + type).then(function (rows) {
-      loaded[type] = true;
-      var list = $('#list-' + type);
-      list.replaceChildren();
-      if (!rows.length) list.append(h('div', { class: 'empty', text: 'Nothing here yet.' }));
-      rows.forEach(function (row) { list.append(contentItem(type, row)); });
-    }).catch(fail);
-  }
-
-  function summary(type, row) {
-    return type === 'projects'
-      ? { title: row.title, sub: [row.category].concat(row.tags).filter(Boolean).join(' · ') }
-      : { title: row.name, sub: row.quote };
-  }
-
-  function contentItem(type, row, startOpen) {
-    var item = h('div', { class: 'item' });
-    var s = summary(type, row || DEFAULTS[type]);
-    var editor = editorFor(type, row, function onSaved(saved) {
-      if (!row) { loadContent(type); return; } // new item: re-render in sort order
-      item.replaceWith(contentItem(type, saved));
-    }, function onCancel() {
-      if (!row) item.remove(); else { editor.classList.add('hidden'); head.setAttribute('aria-expanded', 'false'); }
-    });
-    if (!startOpen) editor.classList.add('hidden');
-
-    var head = h('button', { class: 'item-head', 'aria-expanded': String(!!startOpen), onclick: function () {
-      var open = editor.classList.toggle('hidden') === false;
-      head.setAttribute('aria-expanded', open);
-    } }, [
-      h('div', { class: 'main' }, [
-        h('div', { class: 'title' }, [row ? s.title : 'New ' + type.slice(0, -1), row && !row.published ? h('span', { class: 'pill', text: 'Hidden' }) : null]),
-        h('div', { class: 'sub', text: row ? s.sub : '' })
-      ]),
-      row ? h('span', { class: 'when', text: '#' + row.sort_order }) : null
-    ]);
-    item.append(head, editor);
-    return item;
-  }
-
-  function editorFor(type, row, onSaved, onCancel) {
-    var data = Object.assign({}, DEFAULTS[type], row || {});
-    var form = h('form', { class: 'editor item-body', novalidate: true });
-    var inputs = {};
-
-    FIELDS[type].forEach(function (f) {
-      var val = data[f.key];
-      var input;
-      if (f.type === 'select') {
-        input = h('select', { name: f.key }, f.options.map(function (o) { return h('option', { value: o[0], text: o[1], selected: o[0] === val }); }));
-      } else if (f.type === 'textarea') {
-        input = h('textarea', { name: f.key }); input.value = val;
-      } else if (f.type === 'check') {
-        input = h('input', { type: 'checkbox', name: f.key, checked: !!val });
-      } else {
-        input = h('input', { name: f.key, type: f.type === 'number' ? 'number' : 'text' });
-        input.value = Array.isArray(val) ? val.join(', ') : val;
-      }
-      inputs[f.key] = input;
-      var err = h('span', { class: 'err' });
-      input._err = err;
-      form.append(f.type === 'check'
-        ? h('label', { class: 'field check' + (f.full ? ' full' : '') }, [input, h('span', { text: f.label })])
-        : h('label', { class: 'field' + (f.full ? ' full' : '') }, [h('span', { text: f.label }), input, f.hint ? h('small', { text: f.hint }) : null, err]));
-    });
-
-    var saveBtn = h('button', { class: 'btn sm', type: 'submit', text: row ? 'Save changes' : 'Create' });
-    form.append(h('div', { class: 'row-actions' }, [
-      row ? h('button', { class: 'btn danger sm', type: 'button', text: 'Delete', onclick: function () {
-        if (!confirm('Delete "' + summary(type, row).title + '"? This cannot be undone.')) return;
-        api('DELETE', '/' + type + '/' + row.id).then(function () { toast('Deleted'); loadContent(type); }).catch(fail);
-      } }) : null,
-      h('button', { class: 'btn ghost sm', type: 'button', text: 'Cancel', onclick: onCancel }),
-      saveBtn
-    ]));
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var body = {};
-      Object.keys(inputs).forEach(function (k) {
-        var el = inputs[k];
-        el.closest('.field').classList.remove('invalid');
-        if (el._err) el._err.textContent = '';
-        body[k] = el.type === 'checkbox' ? el.checked : el.type === 'number' ? Number(el.value || 0) : el.value;
-      });
-      saveBtn.disabled = true;
-      (row ? api('PATCH', '/' + type + '/' + row.id, body) : api('POST', '/' + type, body))
-        .then(function (saved) { toast(row ? 'Saved' : 'Created'); onSaved(saved); })
-        .catch(function (err) {
-          Object.keys(err.fields || {}).forEach(function (k) {
-            if (!inputs[k]) return;
-            inputs[k].closest('.field').classList.add('invalid');
-            if (inputs[k]._err) inputs[k]._err.textContent = err.fields[k];
-          });
-          fail(err);
-        })
-        .then(function () { saveBtn.disabled = false; });
-    });
-    return form;
-  }
-
-  document.querySelectorAll('[data-new]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var type = btn.dataset.new;
-      var list = $('#list-' + type);
-      var empty = $('.empty', list);
-      if (empty) empty.remove();
-      var item = contentItem(type, null, true);
-      list.prepend(item);
-      var first = $('input, textarea', item);
-      if (first) first.focus();
-    });
-  });
-})();
-</script>
+<script src="/assets/js/admin.js"></script>
 </body>
 </html>

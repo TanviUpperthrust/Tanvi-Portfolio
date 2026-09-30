@@ -33,6 +33,7 @@ export function validate(input, schema, { partial = false } = {}) {
         if (spec.min && v.length < spec.min) { errors[key] = `At least ${spec.min} characters.`; continue; }
         if (spec.max && v.length > spec.max) { errors[key] = `At most ${spec.max} characters.`; continue; }
         if (spec.email && !EMAIL_RE.test(v)) { errors[key] = 'Enter a valid email.'; continue; }
+        if (spec.pattern && !spec.pattern.test(v)) { errors[key] = spec.patternMessage || 'Invalid format.'; continue; }
         if (spec.url && v && !isSafeUrl(v)) { errors[key] = 'Use an http(s) link or a #anchor.'; continue; }
         break;
       }
@@ -51,6 +52,20 @@ export function validate(input, schema, { partial = false } = {}) {
         if (!Array.isArray(v)) { errors[key] = 'Must be a list.'; continue; }
         v = v.map((t) => String(t).trim()).filter(Boolean).slice(0, 8).map((t) => t.slice(0, 40));
         break;
+      case 'metrics': {
+        // Accepts [{ value, label }] or text with one "value | label" per line.
+        if (typeof v === 'string') {
+          v = v.split('\n').map((line) => line.trim()).filter(Boolean).map((line) => {
+            const i = line.indexOf('|');
+            return i === -1 ? { value: line, label: '' } : { value: line.slice(0, i), label: line.slice(i + 1) };
+          });
+        }
+        if (!Array.isArray(v) || v.some((m) => !m || typeof m !== 'object')) { errors[key] = 'Must be a list.'; continue; }
+        v = v.map((m) => ({ value: String(m.value ?? '').trim().slice(0, 20), label: String(m.label ?? '').trim().slice(0, 80) }))
+          .filter((m) => m.value);
+        if (v.length > 6) { errors[key] = 'At most 6 metrics.'; continue; }
+        break;
+      }
     }
     out[key] = v;
   }

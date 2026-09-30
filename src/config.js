@@ -9,6 +9,8 @@ export function loadConfig(overrides = {}) {
     adminPassword: env.ADMIN_PASSWORD || '',
     sessionSecret: env.SESSION_SECRET || '',
     trustProxy: env.TRUST_PROXY === '1' || env.TRUST_PROXY === 'true',
+    // Public address, e.g. https://tanvi.design. Used for canonical links and the sitemap.
+    siteUrl: (env.SITE_URL || '').replace(/\/+$/, ''),
     smtp: {
       host: env.SMTP_HOST || '',
       port: Number(env.SMTP_PORT) || 587,

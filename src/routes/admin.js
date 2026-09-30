@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { validate } from '../validate.js';
+import { validate, ValidationError } from '../validate.js';
 import { rateLimit } from '../rateLimit.js';
-import { contentTypes } from '../content.js';
+import { contentTypes, slugify } from '../content.js';
 
 function notFound(res) {
   return res.status(404).json({ error: 'Not found.' });
@@ -12,7 +12,7 @@ function idParam(req) {
   return Number.isInteger(id) && id > 0 ? id : null;
 }
 
-export function adminRoutes({ db, auth }) {
+export function adminRoutes({ db, auth, siteStore }) {
   const r = Router();
 
   /* ---------- Session ---------- */
@@ -64,7 +64,29 @@ export function adminRoutes({ db, auth }) {
     res.status(204).end();
   });
 
+  /* ---------- Site settings ---------- */
+  r.get('/site', (req, res) => res.json(siteStore.get()));
+  r.put('/site', (req, res) => res.json(siteStore.save(req.body)));
+
   /* ---------- Projects & testimonials (same CRUD shape) ---------- */
+  const slugTaken = db.prepare('SELECT 1 FROM projects WHERE slug = ? AND id <> ?');
+
+  function uniqueSlug(title, excludeId = 0) {
+    const base = slugify(title) || 'project';
+    let slug = base;
+    for (let n = 2; slugTaken.get(slug, excludeId); n++) slug = `${base}-${n}`;
+    return slug;
+  }
+
+  // Projects: fill in a slug from the title when none is given, and reject duplicates clearly.
+  function prepareSlug(path, data, id = 0) {
+    if (path !== 'projects') return;
+    if (data.slug === '' || (data.slug === undefined && !id)) data.slug = uniqueSlug(data.title, id);
+    else if (data.slug !== undefined && slugTaken.get(data.slug, id)) {
+      throw new ValidationError({ slug: 'Another project already uses this link.' });
+    }
+  }
+
   for (const [path, type] of Object.entries(contentTypes)) {
     const { table, columns, schema, toRow, fromRow } = type;
     const all = db.prepare(`SELECT * FROM ${table} ORDER BY sort_order, id`);
@@ -75,15 +97,21 @@ export function adminRoutes({ db, auth }) {
     r.get(`/${path}`, (req, res) => res.json(all.all().map(fromRow)));
 
     r.post(`/${path}`, (req, res) => {
-      const row = toRow(validate(req.body, schema));
+      const data = validate(req.body, schema);
+      prepareSlug(path, data);
+      const row = toRow(data);
       const { lastInsertRowid } = insert.run(...columns.map((c) => row[c]));
       res.status(201).json(fromRow(get.get(lastInsertRowid)));
     });
 
     r.patch(`/${path}/:id`, (req, res) => {
       const id = idParam(req);
-      if (!id || !get.get(id)) return notFound(res);
-      const row = toRow(validate(req.body, schema, { partial: true }));
+      const current = id && get.get(id);
+      if (!current) return notFound(res);
+      const data = validate(req.body, schema, { partial: true });
+      if (path === 'projects' && data.slug === '') data.title ??= current.title;
+      prepareSlug(path, data, id);
+      const row = toRow(data);
       const keys = columns.filter((c) => row[c] !== undefined);
       if (keys.length) {
         // Column names come from our own whitelist, never from the request.

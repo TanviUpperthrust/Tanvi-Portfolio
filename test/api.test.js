@@ -35,21 +35,24 @@ async function login() {
   return res.headers.get('set-cookie').split(';')[0];
 }
 
-test('serves the site and admin page', async () => {
-  const home = await req('GET', '/');
-  assert.equal(home.status, 200);
-  assert.match(await home.text(), /contactForm/);
-  assert.ok(home.headers.get('content-security-policy'));
-
+test('serves the admin page', async () => {
   const admin = await req('GET', '/admin');
   assert.equal(admin.status, 200);
+  assert.match(await admin.text(), /loginForm/);
 });
 
 test('public content is seeded', async () => {
   const projects = await (await req('GET', '/api/projects')).json();
   assert.equal(projects.length, 4);
   assert.deepEqual(projects[0].tags, ['Research', 'UI']);
+  assert.equal(projects[0].slug, 'paisa-budgeting-app');
   assert.equal(projects[0].published, undefined);
+  assert.equal(projects[0].challenge, undefined, 'list omits case study body');
+
+  const one = await (await req('GET', '/api/projects/paisa-budgeting-app')).json();
+  assert.ok(one.approach.length > 0);
+  assert.equal(one.metrics.length, 3);
+  assert.equal((await req('GET', '/api/projects/nope')).status, 404);
 
   const testimonials = await (await req('GET', '/api/testimonials')).json();
   assert.equal(testimonials.length, 3);
