@@ -2,6 +2,65 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* A rotating deck: the designer first, followed by published projects. */
+  var deck = document.querySelector('.hero-deck');
+  var deckCards = [].slice.call(document.querySelectorAll('[data-deck-card]'));
+  if (deck && deckCards.length) {
+    var deckIndex = 0, deckTimer, deckPaused = reduce;
+    var pauseButton = document.getElementById('deckPause');
+    function renderDeck(announce) {
+      deckCards.forEach(function (card, i) {
+        var position = (i - deckIndex + deckCards.length) % deckCards.length;
+        card.dataset.position = position;
+        card.inert = position !== 0;
+        card.setAttribute('aria-hidden', String(position !== 0));
+      });
+      // Automatic rotation stays quiet for screen readers.
+      var status = document.getElementById('deckStatus');
+      status.setAttribute('aria-live', announce ? 'polite' : 'off');
+      status.textContent = deckCards[deckIndex].getAttribute('aria-label');
+    }
+    function scheduleDeck() {
+      clearInterval(deckTimer);
+      if (!deckPaused && !document.hidden && !deck.matches(':hover') && !deck.contains(document.activeElement)) {
+        deckTimer = setInterval(function () { deckIndex = (deckIndex + 1) % deckCards.length; renderDeck(false); }, 4800);
+      }
+    }
+    function moveDeck(direction) {
+      deckIndex = (deckIndex + direction + deckCards.length) % deckCards.length;
+      renderDeck(true); scheduleDeck();
+    }
+    document.getElementById('deckPrev').onclick = function () { moveDeck(-1); };
+    document.getElementById('deckNext').onclick = function () { moveDeck(1); };
+    function syncPauseButton() {
+      pauseButton.textContent = deckPaused ? 'Play' : 'Pause';
+      pauseButton.setAttribute('aria-label', deckPaused ? 'Play card animation' : 'Pause card animation');
+      pauseButton.setAttribute('aria-pressed', String(deckPaused));
+    }
+    pauseButton.onclick = function () { deckPaused = !deckPaused; syncPauseButton(); scheduleDeck(); };
+    deck.addEventListener('pointerenter', function () { clearInterval(deckTimer); });
+    deck.addEventListener('pointerleave', scheduleDeck);
+    deck.addEventListener('focusin', function () { clearInterval(deckTimer); });
+    deck.addEventListener('focusout', function () { setTimeout(scheduleDeck, 0); });
+    document.addEventListener('visibilitychange', scheduleDeck);
+    window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function (event) {
+      deckPaused = event.matches; syncPauseButton(); scheduleDeck();
+    });
+    renderDeck(false); syncPauseButton(); scheduleDeck();
+  }
+
+  document.querySelectorAll('[data-filter]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var count = 0;
+      document.querySelectorAll('[data-filter]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === button)); });
+      document.querySelectorAll('[data-platform]').forEach(function (card) {
+        card.hidden = button.dataset.filter !== 'all' && card.dataset.platform !== button.dataset.filter;
+        if (!card.hidden) { count++; card.classList.add('in'); }
+      });
+      document.getElementById('workCount').textContent = count + (count === 1 ? ' project' : ' projects');
+    });
+  });
+
   /* ---------- Process scroller: buttons + drag ---------- */
   var steps = document.getElementById('steps');
   function stepBy(dir) { steps.scrollBy({ left: dir * (steps.firstElementChild.offsetWidth + 16), behavior: 'smooth' }); }

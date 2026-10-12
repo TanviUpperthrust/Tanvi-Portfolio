@@ -109,3 +109,14 @@ h1 { font-size: 32px; font-weight: 500; letter-spacing: -.02em; margin: 0; }
 .field .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 13px; }
 .editor .section-label { grid-column: 1 / -1; margin-top: 8px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px; }
 .editor a.preview { font-size: 13px; color: var(--violet); }
+/* Admin workspace polish */
+body { background-image: radial-gradient(ellipse at top right, rgba(139,61,255,.07), transparent 55%); }
+.wrap { width: min(1120px, 100% - 40px); padding-top: 48px; }
+.top { padding-bottom: 24px; }
+.tabs { position: sticky; top: 12px; z-index: 5; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 8px; box-shadow: 0 8px 30px #120f1f08; }
+.tab { border-radius: 10px; }
+.tab[aria-selected="true"] { background: var(--bg-2); color: var(--violet); }
+.item { box-shadow: 0 8px 30px #120f1f04; }
+button, input, textarea, select, a { outline-offset: 4px; }
+:focus-visible { outline: 2px solid var(--violet); }
+@media (max-width: 600px) { .wrap { width: calc(100% - 24px); padding-top: 24px; } .tabs { top: 6px; overflow-x: auto; flex-wrap: nowrap; } .tab { white-space: nowrap; } }

@@ -106,6 +106,13 @@
   menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && root.classList.contains('menu-open')) { setMenu(false); menuBtn.focus(); }
+    if (e.key === 'Tab' && root.classList.contains('menu-open')) {
+      var links = [].slice.call(menu.querySelectorAll('a'));
+      var first = links[0], last = links[links.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); menuBtn.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); menuBtn.focus(); }
+      else if (document.activeElement === menuBtn) { e.preventDefault(); (e.shiftKey ? last : first).focus(); }
+    }
   });
   window.matchMedia('(min-width: 961px)').addEventListener('change', function (mq) { if (mq.matches) setMenu(false); });
 })();

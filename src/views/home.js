@@ -49,6 +49,25 @@ export function homePage({ site, projects, testimonials, siteUrl }) {
       <a href="#contact" class="btn ghost magnetic">Get in touch</a>
     </div>
 
+    <div class="hero-deck reveal" data-d="3" role="region" aria-label="Meet Tanvi and explore her projects" aria-roledescription="carousel">
+      <div class="deck-heading"><span>A LITTLE ABOUT ME & MY WORK</span><span aria-hidden="true">✦</span></div>
+      <div class="deck-stage" id="heroDeck">
+        <article class="deck-card profile-card" data-deck-card data-position="0" aria-label="Meet Tanvi">
+          <div class="profile-card-top"><span>THE DESIGNER</span><span>01 / ${projects.length + 1}</span></div>
+          <div class="profile-monogram" aria-hidden="true"><span>t.</span><i>✳</i><b>hello, there!</b></div>
+          <div class="profile-intro"><h2>Hi, I'm <span class="serif">Tanvi.</span></h2><p>I connect the dots between people, problems, and thoughtful digital experiences.</p></div>
+          <div class="profile-skills"><span>Curious thinker</span><span>UI / UX designer</span><span>Detail lover</span></div>
+          <a class="deck-link" href="#about">Get to know me <span>↗</span></a>
+        </article>
+        ${projects.map((p, i) => html`<article class="deck-card project-deck-card" data-deck-card data-position="${i + 1}" aria-label="${p.title}">
+          <div class="project-deck-top"><span>PROJECT SPOTLIGHT</span><span>${String(i + 2).padStart(2, '0')} / ${projects.length + 1}</span></div>
+          ${shot(p)}
+          <div class="deck-project-info"><span class="deck-category">${p.category}</span><h2>${p.title}</h2><div class="profile-skills">${p.tags.map(tag => html`<span>${tag}</span>`)}</div><a href="/work/${p.slug}" class="deck-link">Explore case study <span>↗</span></a></div>
+        </article>`)}
+      </div>
+      <div class="deck-controls"><div class="deck-buttons"><button type="button" id="deckPrev" aria-label="Previous card">←</button><button type="button" id="deckNext" aria-label="Next card">→</button></div><span id="deckStatus" aria-live="polite">Meet Tanvi</span><button type="button" id="deckPause" aria-label="Pause card animation" aria-pressed="false">Pause</button></div>
+    </div>
+    <div class="hero-caption"><span>UI / UX & PRODUCT DESIGN</span><a href="#work">Scroll to explore ↓</a></div>
     <div class="marquee-wrap reveal" data-d="4">
       <div class="marquee-label">Tools & teams I've worked with</div>
       <div class="marquee" aria-label="${TOOLS.join(', ')}">
@@ -148,10 +167,12 @@ export function homePage({ site, projects, testimonials, siteUrl }) {
       </div>
       <p class="reveal" data-d="2">A few favourite projects. Each case study covers the problem, the process and what changed.</p>
     </div>
+    <div class="work-toolbar"><div class="work-filters" role="group" aria-label="Filter projects"><button type="button" data-filter="all" aria-pressed="true">All work</button><button type="button" data-filter="mobile" aria-pressed="false">Mobile apps</button><button type="button" data-filter="web" aria-pressed="false">Web & dashboards</button></div><span id="workCount" aria-live="polite">${projects.length} projects</span></div>
+    <p class="demo-note">Illustrative portfolio projects. Case study copy and outcomes are sample content.</p>
     <div class="work-list">
-      ${projects.map((p, i) => html`<a href="/work/${p.slug}" class="card project reveal"${d(i % 2)}>
+      ${projects.map((p, i) => html`<a href="/work/${p.slug}" data-platform="${p.layout.startsWith('phone') ? 'mobile' : 'web'}" class="card project reveal"${d(i % 2)}>
         ${shot(p)}
-        <div class="meta"><div><h3>${p.title}</h3><div class="cat">${p.category}</div></div><div class="chips">${p.tags.map((t) => html`<span class="chip">${t}</span>`)}</div></div>
+        <div class="meta"><div><h3>${p.title}</h3><div class="cat">${p.category}</div></div><span class="project-arrow" aria-hidden="true">↗</span></div><p class="project-summary">${p.summary}</p><div class="chips">${p.tags.map((t) => html`<span class="chip">${t}</span>`)}</div>
       </a>`)}
     </div>
   </div>
@@ -168,6 +189,7 @@ export function homePage({ site, projects, testimonials, siteUrl }) {
         <h2 class="reveal" data-d="1">What clients & teams <span class="serif">say</span></h2>
       </div>
     </div>
+    <p class="demo-note">Sample testimonials and highlights for this portfolio template.</p>
     <div class="voice-stats">
       ${site.highlights.map((h, i) => html`<div class="card reveal"${d(i)}><div class="num grad-text">${statValue(h.value)}</div><p>${h.text}</p></div>`)}
     </div>
