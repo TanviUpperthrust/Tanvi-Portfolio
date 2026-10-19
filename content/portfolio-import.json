@@ -1,0 +1,279 @@
+{
+  "sourceUrl": "https://tanvijainportfolio.framer.website/",
+  "importVersion": 1,
+  "profile": {
+    "email": "tanvisjain108@gmail.com",
+    "location": "Available worldwide",
+    "instagram": "https://www.instagram.com/tanvijain_3011/",
+    "behance": "https://www.behance.net/tanvijain39",
+    "phone": "+91 9665796885",
+    "resumeUrl": "/assets/documents/tanvi-jain-resume.pdf"
+  },
+  "projects": [
+    {
+      "title": "Noise Pollution in Festivals & Events",
+      "slug": "noise-pollution-festivals-events",
+      "category": "UX Research & Social Impact",
+      "tags": [
+        "UX research",
+        "Social impact"
+      ],
+      "summary": "Research into how festival and event noise affects health, everyday life and urban communities.",
+      "coverImage": "/assets/images/portfolio/noise-pollution-festivals-events-cover.jpg",
+      "year": "",
+      "role": "",
+      "client": "",
+      "duration": "4 weeks",
+      "sections": [
+        {
+          "heading": "Project overview",
+          "body": "A research-driven design project exploring how noise from festivals and events impacts health, daily life, and urban communities, aiming to create balanced solutions between cultural celebration and community well-being.",
+          "images": []
+        },
+        {
+          "heading": "Prototype flow",
+          "body": "File — Submit your complaint with location and evidence.\n\nTrack — Monitor progress with your unique tracking ID.\n\nResolve — Get notified when action is taken.",
+          "images": [
+            {
+              "src": "/assets/images/portfolio/noise-pollution-festivals-events-detail-2-1.png",
+              "alt": "Dhwani Noise Control Portal",
+              "caption": "Branding displayed by the linked public prototype."
+            }
+          ]
+        }
+      ],
+      "url": "https://www.figma.com/proto/1TUYGu8VfibhIugIJ3QuJz/Design-for-Society-Jury?node-id=115-7093&viewport=1057%2C1996%2C0.02&t=qdDMEPeGwDh2NJ0J-1&scaling=min-zoom&content-scaling=fixed&page-id=279%3A3904",
+      "prototypeUrl": "https://curl-jog-09156379.figma.site/",
+      "theme": "s1",
+      "layout": "wide",
+      "sort_order": 0,
+      "published": true,
+      "metrics": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "sourceUrl": "https://tanvijainportfolio.framer.website/projects/summer-vibes-festival-campaign",
+      "sourceNotes": [
+        "Category is inferred from the published project description.",
+        "Framer publishes an overview, project metadata and one main cover only; MORE PROJECTS grid images and the shared avatar are excluded from case-study images.",
+        "The main cover is wrapped in an unrelated Movie Recommendation Chatbot Behance link; that link is not used as this project’s case-study URL.",
+        "Published creator “Event / Festival” and mentor “FestivalWorks” are unrelated template values and have been omitted from normalized creators/mentor; the raw extraction preserves them.",
+        "The linked Figma case deck resolves as Design for Society Jury, but its content renders on canvas and exposed no extractable document text or ordered gallery assets. The original case-study URL is retained.",
+        "The public prototype’s feature flow is preserved; demo metrics, testimonials, placeholder contact numbers and support claims are not treated as project outcomes or real endorsements."
+      ]
+    },
+    {
+      "title": "Panchkalyanak Management System",
+      "slug": "panchkalyanak-management-system",
+      "category": "Service Design Research",
+      "tags": [
+        "Service design",
+        "Research"
+      ],
+      "summary": "Service design research into the systems behind a large-scale spiritual event at Namokar Tirth.",
+      "coverImage": "/assets/images/portfolio/panchkalyanak-management-system-cover.jpg",
+      "year": "",
+      "role": "",
+      "client": "",
+      "duration": "5 weeks",
+      "sections": [
+        {
+          "heading": "Project overview",
+          "body": "A service design research project focused on understanding and improving the management system of Digambar Jain Panchkalyanak at Namokar Tirth. The project explores how large-scale spiritual events operate as temporary cities, highlighting challenges in accommodation, food systems, volunteer coordination, and information flow to design a more seamless and organized experience.",
+          "images": []
+        },
+        {
+          "heading": "Project credits",
+          "body": "Created by Tanvi Jain.\n\nMentored by Shruti Deshpande.",
+          "images": []
+        }
+      ],
+      "url": "",
+      "prototypeUrl": "https://ai.studio/apps/1b92889b-f17a-47b1-a780-34b7d23482f4",
+      "theme": "s2",
+      "layout": "wide",
+      "sort_order": 1,
+      "published": true,
+      "metrics": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "sourceUrl": "https://tanvijainportfolio.framer.website/projects/panchkalyanak-management-system",
+      "sourceNotes": [
+        "Category is inferred from the published project description.",
+        "Framer publishes an overview, project metadata and one main cover only; MORE PROJECTS grid images and the shared avatar are excluded from case-study images.",
+        "The main cover is wrapped in an unrelated Movie Recommendation Chatbot Behance link; that link is not used as this project’s case-study URL.",
+        "The VIEW CASE STUDY label has no href in the source HTML. No matching full case-study page was discoverable in the linked Behance profile.",
+        "The prototype URL redirects to Google sign-in; no protected content was accessed."
+      ]
+    },
+    {
+      "title": "Smart Kitchen Management System",
+      "slug": "smart-kitchen-management-system",
+      "category": "Dashboard & Product Design",
+      "tags": [
+        "Dashboard design",
+        "Product design"
+      ],
+      "summary": "A unified restaurant dashboard for inventory, staff, safety, recipes and point-of-sale management.",
+      "coverImage": "/assets/images/portfolio/smart-kitchen-management-system-cover.jpg",
+      "year": "",
+      "role": "",
+      "client": "",
+      "duration": "5 weeks",
+      "sections": [
+        {
+          "heading": "Project overview",
+          "body": "A Smart Kitchen Management System designed to streamline restaurant operations by integrating inventory, staff, safety, recipe, and POS management into one unified platform. It enables real-time monitoring, data-driven decision-making, and predictive insights to reduce waste, improve efficiency, and ensure consistent service quality across outlets.",
+          "images": []
+        },
+        {
+          "heading": "Project credits",
+          "body": "Created by Tanvi Jain, Kuntalika Debnath.\n\nMentored by Rohith V Raj T M.",
+          "images": []
+        }
+      ],
+      "url": "",
+      "prototypeUrl": "",
+      "theme": "s3",
+      "layout": "wide",
+      "sort_order": 2,
+      "published": true,
+      "metrics": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "sourceUrl": "https://tanvijainportfolio.framer.website/projects/smart-kitchen-management-system",
+      "sourceNotes": [
+        "Category is inferred from the published project description.",
+        "Framer publishes an overview, project metadata and one main cover only; MORE PROJECTS grid images and the shared avatar are excluded from case-study images.",
+        "The main cover is wrapped in an unrelated Movie Recommendation Chatbot Behance link; that link is not used as this project’s case-study URL.",
+        "The VIEW CASE STUDY label has no href in the source HTML. No matching full case-study page was discoverable in the linked Behance profile.",
+        "The PROTOTYPE label has no href in the source HTML."
+      ]
+    },
+    {
+      "title": "Two Factor Authentication",
+      "slug": "two-factor-authentication",
+      "category": "Usability Testing",
+      "tags": [
+        "Usability testing",
+        "Banking UX"
+      ],
+      "summary": "A usability study of two-factor authentication in Indian banking apps, exploring security, accessibility and trust.",
+      "coverImage": "/assets/images/portfolio/two-factor-authentication-cover.png",
+      "year": "",
+      "role": "",
+      "client": "",
+      "duration": "4 weeks",
+      "sections": [
+        {
+          "heading": "Project overview",
+          "body": "A comprehensive usability study exploring how two-factor authentication impacts user experience, security perception, and accessibility in Indian banking apps, highlighting key challenges and opportunities to create a more seamless and trustworthy digital banking experience",
+          "images": []
+        },
+        {
+          "heading": "Project credits",
+          "body": "Created by Tanvi, Prathmesh, Nisha, Kshitij.\n\nMentored by Apoorva Gadgil Gijare.",
+          "images": []
+        }
+      ],
+      "url": "https://www.behance.net/gallery/250947681/TWO-FACTOR-AUTHENTICATION",
+      "prototypeUrl": "",
+      "theme": "s4",
+      "layout": "wide",
+      "sort_order": 3,
+      "published": true,
+      "metrics": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "sourceUrl": "https://tanvijainportfolio.framer.website/projects/two-factor-authentication",
+      "sourceNotes": [
+        "The Framer page contains a category, title, summary, duration, creators, mentor, actions and one cover image. It contains no additional research/process/outcome sections or image-based case-study panels before More Projects.",
+        "Related-project recommendations, their repeated responsive images and generic template teaser copy, global navigation and footer were excluded.",
+        "The linked Behance gallery page returned HTTP 403 to direct fetch, and isolated Chrome returned HTTP ERROR 400. The public Behance embed is available but contains only a cropped cover and owner metadata, not the full project gallery. Full Behance case-study panels and text could not be recovered; no outcomes were invented.",
+        "The source shows a PROTOTYPE label, but it is not an anchor and has no prototype URL.",
+        "The Framer cover incorrectly links to https://www.behance.net/gallery/250671735/Movie-Recommendation-Chatbot. Use the VIEW CASE STUDY button URL for this project instead.",
+        "The public Behance embed confirms owner TANVI JAIN (https://www.behance.net/tanvijain39)."
+      ]
+    },
+    {
+      "title": "StreamBot - Movie Recommendation Chatbot",
+      "slug": "streambot-movie-recommendation-chatbot",
+      "category": "UI / UX Design",
+      "tags": [
+        "Conversational UX",
+        "Prototyping"
+      ],
+      "summary": "A conversational movie discovery experience that recommends content around mood, genre, language and viewing preferences.",
+      "coverImage": "/assets/images/portfolio/streambot-movie-recommendation-chatbot-cover.png",
+      "year": "",
+      "role": "",
+      "client": "",
+      "duration": "2 weeks",
+      "sections": [
+        {
+          "heading": "Project overview",
+          "body": "StreamBot is a conversational movie recommendation chatbot that helps users discover personalized content across OTT platforms based on their mood, genre preferences, language, and viewing interests. It simplifies content discovery, reduces decision fatigue, and provides quick, relevant recommendations through an interactive chat-based experience.",
+          "images": []
+        },
+        {
+          "heading": "Project credits",
+          "body": "Created by Tanvi Jain.\n\nMentored by Dr. Ravindra Bachate.",
+          "images": []
+        }
+      ],
+      "url": "https://www.behance.net/gallery/250671735/Movie-Recommendation-Chatbot",
+      "prototypeUrl": "https://www.figma.com/proto/EL0RBb7e2JtnL97Dwp57JW/Prototype-MOVIE-APP?node-id=92-2193&viewport=500%2C-153%2C0.08&t=AWrYRyqHvPSdi844-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=92%3A2193&show-proto-sidebar=1&page-id=0%3A1",
+      "theme": "s1",
+      "layout": "wide",
+      "sort_order": 4,
+      "published": true,
+      "metrics": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "sourceUrl": "https://tanvijainportfolio.framer.website/projects/procurement-and-inventory-management-system",
+      "sourceNotes": [
+        "The Framer page contains a category, title, summary, duration, creators, mentor, actions and one cover image. It contains no additional research/process/outcome sections or image-based case-study panels before More Projects.",
+        "Related-project recommendations, their repeated responsive images and generic template teaser copy, global navigation and footer were excluded.",
+        "The linked Behance gallery page returned HTTP 403 to direct fetch, and isolated Chrome returned HTTP ERROR 400. The public Behance embed is available but contains only a cropped cover and owner metadata, not the full project gallery. Full Behance case-study panels and text could not be recovered; no outcomes were invented.",
+        "The source route is named procurement-and-inventory-management-system, but its visible content is StreamBot - Movie Recommendation Chatbot. The canonical import slug follows the actual project title.",
+        "The public Behance embed confirms owner TANVI JAIN (https://www.behance.net/tanvijain39)."
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "sourceUrl": "https://framerusercontent.com/images/GivM1EZAZQZoRAyddarfiYeMuE.jpg",
+      "localPath": "/assets/images/portfolio/noise-pollution-festivals-events-cover.jpg",
+      "bytes": 144221
+    },
+    {
+      "sourceUrl": "https://curl-jog-09156379.figma.site/_assets/v11/6477cbc2e0840fa227e4dd52a1c8933c7b8034ae.png",
+      "localPath": "/assets/images/portfolio/noise-pollution-festivals-events-detail-2-1.png",
+      "bytes": 4039
+    },
+    {
+      "sourceUrl": "https://framerusercontent.com/images/Tlf5KTMla5lBbk8KiQMusVE.jpg",
+      "localPath": "/assets/images/portfolio/panchkalyanak-management-system-cover.jpg",
+      "bytes": 171668
+    },
+    {
+      "sourceUrl": "https://framerusercontent.com/images/oVy09v8MrZ5q3KxMfy2CaC4Bbo.jpg",
+      "localPath": "/assets/images/portfolio/smart-kitchen-management-system-cover.jpg",
+      "bytes": 102644
+    },
+    {
+      "sourceUrl": "https://framerusercontent.com/images/AWr1m4gSxFQXtmzlX4GFlDoAtk.png",
+      "localPath": "/assets/images/portfolio/two-factor-authentication-cover.png",
+      "bytes": 215881
+    },
+    {
+      "sourceUrl": "https://framerusercontent.com/images/vsu0dbrl01qNx9jfJYFJEd4xIB4.png",
+      "localPath": "/assets/images/portfolio/streambot-movie-recommendation-chatbot-cover.png",
+      "bytes": 158485
+    }
+  ]
+}

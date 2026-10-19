@@ -3,18 +3,17 @@
 (function () {
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var motionPaused = reduce;
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ---------- Theme toggle ---------- */
   function currentTheme() {
-    var t = root.getAttribute('data-theme');
-    if (t) return t;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return root.getAttribute('data-theme') || 'light';
   }
   document.getElementById('themeToggle').addEventListener('click', function () {
     var next = currentTheme() === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
-    try { localStorage.setItem('theme', next); } catch (e) {}
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', next === 'dark' ? '#07060D' : '#FBF9FF');
   });
 
   /* ---------- Pointer-driven background ---------- */
@@ -25,10 +24,16 @@
 
   window.addEventListener('pointermove', function (e) {
     mouse.x = e.clientX; mouse.y = e.clientY;
-    if (finePointer) cursor.style.opacity = 1;
+    if (finePointer && !motionPaused) {
+      cursor.style.opacity = 1;
+      if (!backgroundFrame) backgroundFrame = requestAnimationFrame(tick);
+    }
   }, { passive: true });
 
+  var backgroundFrame = 0;
   function tick() {
+    backgroundFrame = 0;
+    if (motionPaused || document.hidden) return;
     eased.x += (mouse.x - eased.x) * 0.08;
     eased.y += (mouse.y - eased.y) * 0.08;
     root.style.setProperty('--cx', eased.x + 'px');
@@ -41,13 +46,28 @@
       o.style.transform = 'translate(' + (nx * d * 2) + 'px,' + (ny * d * 2) + 'px)';
     });
     if (finePointer) cursor.style.transform = 'translate(' + mouse.x + 'px,' + mouse.y + 'px)';
-    requestAnimationFrame(tick);
+    if (Math.abs(mouse.x - eased.x) + Math.abs(mouse.y - eased.y) > .5) backgroundFrame = requestAnimationFrame(tick);
   }
-  if (!reduce) requestAnimationFrame(tick);
+  if (!reduce) backgroundFrame = requestAnimationFrame(tick);
+  function setMotionPaused(paused) {
+    motionPaused = paused;
+    if (paused) {
+      cancelAnimationFrame(backgroundFrame);
+      backgroundFrame = 0;
+      cursor.style.opacity = 0;
+      document.querySelectorAll('.magnetic').forEach(function (el) { el.style.transform = ''; });
+    } else if (!backgroundFrame) backgroundFrame = requestAnimationFrame(tick);
+  }
+  window.addEventListener('portfolio:motion', function (event) { setMotionPaused(event.detail.paused); });
+  window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function (event) { setMotionPaused(event.matches); });
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden && !motionPaused && !backgroundFrame) backgroundFrame = requestAnimationFrame(tick);
+  });
 
   /* ---------- Card glow follows pointer ---------- */
   document.querySelectorAll('.card').forEach(function (card) {
     card.addEventListener('pointermove', function (e) {
+      if (motionPaused) return;
       var r = card.getBoundingClientRect();
       card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
       card.style.setProperty('--my', (e.clientY - r.top) + 'px');
@@ -66,6 +86,7 @@
   if (finePointer && !reduce) {
     document.querySelectorAll('.magnetic').forEach(function (el) {
       el.addEventListener('pointermove', function (e) {
+        if (motionPaused) return;
         var r = el.getBoundingClientRect();
         var x = (e.clientX - r.left - r.width / 2) * 0.25;
         var y = (e.clientY - r.top - r.height / 2) * 0.35;
@@ -81,14 +102,16 @@
       if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  root.classList.add('reveal-ready');
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
-  /* ---------- Hide nav on scroll down, show on scroll up ---------- */
-  var nav = document.getElementById('nav'), lastY = 0;
+  /* ---------- Navigation stays visible while the page scrolls ---------- */
+  var nav = document.getElementById('nav');
+  nav.classList.remove('hidden');
+  function updateNav() { nav.classList.toggle('is-scrolled', window.scrollY > 24); }
+  updateNav();
   window.addEventListener('scroll', function () {
-    var y = scrollY;
-    nav.classList.toggle('hidden', y > lastY && y > 200 && !root.classList.contains('menu-open'));
-    lastY = y;
+    updateNav();
   }, { passive: true });
 
   /* ---------- Mobile menu ---------- */

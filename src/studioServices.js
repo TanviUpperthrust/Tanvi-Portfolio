@@ -1,0 +1,142 @@
+// Public service content. Keep the scope focused on Tanvi's UI / UX practice.
+export const STUDIO_SERVICES = [
+  {
+    id: 'full-product-design',
+    slug: 'full-product-design',
+    title: 'Product design',
+    shortTitle: 'Product design',
+    topic: 'Full product design',
+    description: 'From an early question to a clear product experience. Research, user journeys, interface design and prototypes come together around the people using your product.',
+    tags: ['Product strategy', 'User journeys', 'UI / UX', 'Prototypes'],
+    deliverables: [
+      'A shared understanding of the audience, product goals and decisions the project needs to make.',
+      'User journeys, task flows and wireframes that establish the structure before visual design begins.',
+      'Responsive interface designs with the important states, edge cases and interactions considered.',
+      'An interactive prototype and organised design files for review, testing and developer handoff.',
+    ],
+    process: [
+      { title: 'Frame', description: 'Agree on the problem, the audience and what a useful outcome would look like.' },
+      { title: 'Explore', description: 'Map the journeys and compare a few possible approaches before committing to one.' },
+      { title: 'Design', description: 'Build the interface and a prototype, sharing decisions as the details take shape.' },
+      { title: 'Refine', description: 'Review the experience, resolve the important states and prepare a clear handoff.' },
+    ],
+    faqs: [
+      { question: 'Can we start with an idea rather than a brief?', answer: 'Yes. An early conversation can help turn the idea into a practical design brief, identify the people it serves and decide which questions need to be explored first.' },
+      { question: 'Can you work on one part of an existing product?', answer: 'Yes. The scope can focus on a particular journey, a new feature or a wider redesign. Existing patterns and technical constraints become part of the brief.' },
+      { question: 'Does product design include development?', answer: 'This service covers the design work, prototypes and handoff. Development responsibilities and collaboration with your engineers are agreed before the project starts.' },
+      { question: 'How are timelines and fees decided?', answer: 'They depend on the scope, available research and number of journeys involved. We can agree on the deliverables, review points and quote after discussing the project.' },
+    ],
+  },
+  {
+    id: 'ux-research',
+    slug: 'ux-research',
+    title: 'UX research',
+    shortTitle: 'Research',
+    topic: 'UX research',
+    description: 'Understand the people behind the clicks. Interviews, research planning and usability reviews help make the next design decision a little clearer.',
+    tags: ['Research planning', 'Interviews', 'Usability testing', 'Synthesis'],
+    deliverables: [
+      'A focused research plan shaped around the decisions your team needs to make.',
+      'Interview guides, test tasks or review criteria appropriate to the project stage.',
+      'A synthesis of observations, needs and recurring points of friction.',
+      'Clear findings and prioritised design opportunities for the next phase of work.',
+    ],
+    process: [
+      { title: 'Ask', description: 'Identify the decisions and assumptions the research should help clarify.' },
+      { title: 'Plan', description: 'Choose the methods, participants and tasks that fit those questions.' },
+      { title: 'Listen', description: 'Gather observations carefully and keep evidence separate from assumptions.' },
+      { title: 'Connect', description: 'Bring the findings together and explain what they could mean for the design.' },
+    ],
+    faqs: [
+      { question: 'Do we need a finished product to run research?', answer: 'No. Research can explore an early problem, evaluate a prototype or examine an existing experience. The method depends on what you need to learn.' },
+      { question: 'Can you review research we already have?', answer: 'Yes. Existing interviews, feedback, analytics and support themes can help shape the research plan and avoid repeating work that already answers the question.' },
+      { question: 'Who recruits the participants?', answer: 'Recruitment responsibilities, participant criteria and any incentives are agreed as part of the scope. Access to your existing audience can be useful when it is appropriate.' },
+      { question: 'What happens after the research?', answer: 'The findings are organised into clear observations and design opportunities. The next step may be a focused iteration, a prototype or a wider product design project.' },
+    ],
+  },
+  {
+    id: 'ui-design',
+    slug: 'ui-design',
+    title: 'UI design',
+    shortTitle: 'UI design',
+    topic: 'UI design',
+    description: 'A visual language with a purpose. Typography, colour, hierarchy and interaction details turn a sound structure into a clear, expressive interface.',
+    tags: ['Visual direction', 'Responsive UI', 'Interaction', 'Design handoff'],
+    deliverables: [
+      'A visual direction that connects the product goals with your existing brand or emerging identity.',
+      'High-fidelity screens for the agreed journeys and responsive breakpoints.',
+      'Useful component states, including feedback, empty states and validation.',
+      'Organised Figma files with reusable patterns and notes for developer handoff.',
+    ],
+    process: [
+      { title: 'Understand', description: 'Review the structure, audience, brand and practical constraints.' },
+      { title: 'Set direction', description: 'Explore a focused visual direction before expanding the screen set.' },
+      { title: 'Build out', description: 'Apply the direction to the journeys, components and responsive layouts.' },
+      { title: 'Polish', description: 'Check the details, document key behaviours and prepare the files for handoff.' },
+    ],
+    faqs: [
+      { question: 'Can you work from existing wireframes?', answer: 'Yes. Wireframes and flows provide a useful starting point. Any gaps in the journey or interaction states can be discussed before the visual design is expanded.' },
+      { question: 'Can the design use our existing brand?', answer: 'Yes. Brand guidelines, typography and existing components can guide the visual direction. We can also agree on where the interface needs room to evolve.' },
+      { question: 'Will the design cover mobile and desktop?', answer: 'The required devices and breakpoints are agreed in the scope. Responsive behaviour is considered as part of the layout rather than left until handoff.' },
+      { question: 'What will developers receive?', answer: 'They receive organised design files, component states and notes on the key interactions. The amount of implementation support can be agreed with your team.' },
+    ],
+  },
+  {
+    id: 'design-systems',
+    slug: 'design-systems',
+    title: 'Design systems',
+    shortTitle: 'Design systems',
+    topic: 'Design system',
+    description: 'Make the good decisions repeatable. A considered set of foundations, components and guidelines helps a product stay coherent as it grows.',
+    tags: ['Design tokens', 'Components', 'UI patterns', 'Documentation'],
+    deliverables: [
+      'An interface audit that highlights repeated patterns, inconsistencies and useful priorities.',
+      'Foundations for colour, typography, spacing and other agreed design tokens.',
+      'A reusable Figma component library with variants and relevant interaction states.',
+      'Practical usage guidance and a handoff that reflects how your team works.',
+    ],
+    process: [
+      { title: 'Audit', description: 'Review the current screens and find the patterns that matter most.' },
+      { title: 'Establish', description: 'Define a small, useful set of foundations and naming conventions.' },
+      { title: 'Systemise', description: 'Create and test components against real product screens.' },
+      { title: 'Document', description: 'Explain how the pieces fit together and where they should be used.' },
+    ],
+    faqs: [
+      { question: 'Does a smaller product need a design system?', answer: 'It may only need a focused component library and a few well-documented foundations. The scope should suit the product rather than introduce more process than the team needs.' },
+      { question: 'Can you improve an existing component library?', answer: 'Yes. The work can start with an audit and focus on the parts that are inconsistent, difficult to use or missing important states.' },
+      { question: 'Is a coded component library included?', answer: 'The core service covers the design foundations, Figma library and guidance. Any coded components or developer collaboration are discussed separately in the scope.' },
+      { question: 'How does the system stay useful?', answer: 'It helps to agree on ownership, contribution rules and a lightweight review process. Those decisions can be documented alongside the components.' },
+    ],
+  },
+  {
+    id: 'prototyping',
+    slug: 'prototyping',
+    title: 'Prototyping',
+    shortTitle: 'Prototyping',
+    topic: 'Prototyping',
+    description: 'Make an idea tangible before it is built. Interactive prototypes bring journeys and small details to life so there is something meaningful to discuss and test.',
+    tags: ['Interactive flows', 'Motion studies', 'Testing', 'Concept demos'],
+    deliverables: [
+      'A clear prototype brief that defines the journey and the questions it should help answer.',
+      'An interactive experience at the level of fidelity appropriate to the project.',
+      'The key transitions, feedback and states needed to understand the proposed interaction.',
+      'A shareable prototype and notes for testing, review or the next design iteration.',
+    ],
+    process: [
+      { title: 'Choose', description: 'Pick the journey, decision or interaction the prototype should explore.' },
+      { title: 'Connect', description: 'Build a clear flow from the screens, content or early concepts.' },
+      { title: 'Bring to life', description: 'Add the interactions that make the idea understandable.' },
+      { title: 'Learn', description: 'Review the prototype and record the decisions or questions it reveals.' },
+    ],
+    faqs: [
+      { question: 'How polished should a prototype be?', answer: 'Only as polished as the question requires. Early structure can be tested with a simple flow, while a motion study or presentation may need a more detailed prototype.' },
+      { question: 'Can you prototype designs we already have?', answer: 'Yes. Existing design files can be connected into a journey, with any missing states or interaction decisions identified along the way.' },
+      { question: 'Can the prototype be used for usability testing?', answer: 'Yes. We can agree on the tasks and prepare a prototype that supports the intended sessions without distracting from the questions being tested.' },
+      { question: 'Is the prototype a working application?', answer: 'A design prototype demonstrates the experience. It is not a production application, and any development or integration work should be scoped separately.' },
+    ],
+  },
+];
+
+export function getStudioService(slug) {
+  return STUDIO_SERVICES.find((service) => service.slug === slug) || null;
+}

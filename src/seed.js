@@ -104,10 +104,12 @@ export const SEED_TESTIMONIALS = [
 ];
 
 export const DEFAULT_SITE = {
+  showProjectTemplates: true,
   available: true,
-  availability: 'Open to new projects · 2026',
+  availability: 'Open to new projects',
   email: 'hello@tanvi.design',
   location: 'Mumbai, India · Available worldwide',
+  instagram: '',
   linkedin: '',
   behance: '',
   dribbble: '',

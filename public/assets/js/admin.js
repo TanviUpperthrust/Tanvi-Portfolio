@@ -344,7 +344,7 @@
 
   function loadSite() {
     return api('GET', '/site').then(function (site) {
-      ['availability', 'available', 'email', 'location', 'linkedin', 'behance', 'dribbble'].forEach(function (k) { setField(k, site[k]); });
+      ['availability', 'available', 'showProjectTemplates', 'email', 'location', 'instagram', 'linkedin', 'behance', 'dribbble'].forEach(function (k) { setField(k, site[k]); });
       site.stats.forEach(function (s, i) { ['tag', 'value', 'text', 'accent'].forEach(function (k) { setField('stats.' + i + '.' + k, s[k]); }); });
       site.highlights.forEach(function (s, i) { ['value', 'text'].forEach(function (k) { setField('highlights.' + i + '.' + k, s[k]); }); });
     }).catch(fail);
@@ -356,8 +356,8 @@
     siteForm.querySelectorAll('[data-err]').forEach(function (el) { el.textContent = ''; });
     var el = siteForm.elements;
     var body = {
-      availability: el.availability.value, available: el.available.checked, email: el.email.value, location: el.location.value,
-      linkedin: el.linkedin.value, behance: el.behance.value, dribbble: el.dribbble.value, stats: [], highlights: []
+      availability: el.availability.value, available: el.available.checked, showProjectTemplates: el.showProjectTemplates.checked, email: el.email.value, location: el.location.value,
+      instagram: el.instagram.value, linkedin: el.linkedin.value, behance: el.behance.value, dribbble: el.dribbble.value, stats: [], highlights: []
     };
     for (var i = 0; i < STAT_COUNT; i++) {
       body.stats.push({ tag: el['stats.' + i + '.tag'].value, value: el['stats.' + i + '.value'].value, text: el['stats.' + i + '.text'].value, accent: el['stats.' + i + '.accent'].checked });

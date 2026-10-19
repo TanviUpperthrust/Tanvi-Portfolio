@@ -5,10 +5,12 @@ import { DEFAULT_SITE } from './seed.js';
 // stored as one JSON document under the "site" key.
 
 const schema = {
+  showProjectTemplates: { type: 'bool', default: true },
   available: { type: 'bool', default: true },
   availability: { type: 'string', required: true, max: 80 },
   email: { type: 'string', required: true, max: 200, email: true },
   location: { type: 'string', max: 120 },
+  instagram: { type: 'string', max: 300, url: true },
   linkedin: { type: 'string', max: 300, url: true },
   behance: { type: 'string', max: 300, url: true },
   dribbble: { type: 'string', max: 300, url: true },

@@ -64,6 +64,10 @@ const PROJECT_COLUMNS = [
   ['approach', "TEXT NOT NULL DEFAULT ''"],
   ['outcome', "TEXT NOT NULL DEFAULT ''"],
   ['metrics', "TEXT NOT NULL DEFAULT '[]'"],
+  ['cover_image', "TEXT NOT NULL DEFAULT ''"],
+  ['sections', "TEXT NOT NULL DEFAULT '[]'"],
+  ['year', "TEXT NOT NULL DEFAULT ''"],
+  ['prototype_url', "TEXT NOT NULL DEFAULT ''"],
 ];
 
 export function openDatabase(file) {

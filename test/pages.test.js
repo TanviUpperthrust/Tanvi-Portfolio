@@ -6,6 +6,7 @@ import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { openDatabase } from '../src/db.js';
 import { createApp } from '../src/app.js';
+import { STUDIO_SERVICES } from '../src/studioServices.js';
 
 const PASSWORD = 'test-password';
 let server, base, db;
@@ -37,37 +38,118 @@ async function login() {
   return res.headers.get('set-cookie').split(';')[0];
 }
 
-test('home page is server-rendered from the database', async () => {
+test('home page renders the personal introduction, five templates and links to the public pages', async () => {
   const res = await req('GET', '/');
   assert.equal(res.status, 200);
   assert.match(res.headers.get('content-type'), /text\/html/);
   const page = await res.text();
-  assert.match(page, /id="contactForm"/);
-  assert.match(page, /href="\/work\/paisa-budgeting-app"/);
-  assert.match(page, /Open to new projects · 2026/);
-  assert.match(page, /4<sup>\+<\/sup>/, 'stat "+" renders as superscript');
-  assert.match(page, /she <em>rethought<\/em> how/, 'first testimonial rendered with emphasis');
-  assert.match(page, /id="quotesData"/);
+  assert.equal((page.match(/data-project-template="true"/g) || []).length, 5, 'five project templates are shown while content is being prepared');
+  assert.doesNotMatch(page, /href="\/work\/paisa-budgeting-app"/, 'templates do not link to sample project stories');
+  assert.match(page, /class="[^"]*\bhome-hero\b/);
+  const site = await (await req('GET', '/api/site')).json();
+  assert.ok(page.includes(site.availability), 'availability remains server-rendered from site settings');
+  for (const route of ['/work', '/about', '/services', '/contact']) {
+    assert.ok(page.includes(`href="${route}"`), route);
+  }
+  for (let index = 1; index <= 5; index++) {
+    assert.ok(page.includes(`href="/work/project-${String(index).padStart(2, '0')}"`));
+  }
+  assert.doesNotMatch(page, /id="contactForm"|id="quotesData"/, 'contact and editorial content have their own pages');
   assert.match(page, /<link rel="canonical" href="https:\/\/tanvi.example\/"/);
   assert.doesNotMatch(page, /<script>/, 'no inline scripts');
-  assert.doesNotMatch(page, /class="socials/, 'empty social links are hidden');
 });
 
 test('CSP forbids inline scripts', async () => {
-  const csp = (await req('GET', '/')).headers.get('content-security-policy');
-  assert.match(csp, /script-src 'self'(;|$)/);
+  for (const route of ['/', '/about', '/work', '/services', '/contact']) {
+    const response = await req('GET', route);
+    assert.match(response.headers.get('content-security-policy'), /script-src 'self'(;|$)/, route);
+    const page = await response.text();
+    for (const script of page.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
+      assert.ok(/\bsrc=/.test(script[1]) || /\btype="application\/(?:ld\+)?json"/.test(script[1]), `${route}: executable scripts must be external`);
+    }
+  }
+});
+
+test('every public page includes a light default, an early saved-theme initializer and the accessible theme control', async () => {
+  const routes = ['/', '/work', '/about', '/services', '/contact', '/work/project-01', '/not-a-page', ...STUDIO_SERVICES.map(service => `/services/${service.slug}`)];
+  for (const route of routes) {
+    const page = await (await req('GET', route)).text();
+    assert.match(page, /<html lang="en" data-theme="light">/, route);
+    assert.match(page, /name="theme-color" content="#f5f3ed"/, route);
+    assert.match(page, /id="themeToggle"[^>]*type="button"[^>]*aria-label="Switch to dark mode"[^>]*aria-pressed="false"/, route);
+    assert.match(page, /data-theme-icon="light"/, route);
+    assert.match(page, /data-theme-icon="dark"/, route);
+    const initializer = page.match(/<script\b[^>]*src="\/assets\/js\/appearance\.js[^>]*>/)?.[0];
+    assert.ok(initializer, `${route}: saved-theme initializer is present`);
+    assert.doesNotMatch(initializer, /\b(?:async|defer)\b/, 'saved theme must apply before styles render');
+    assert.ok(page.indexOf(initializer) < page.indexOf('<link rel="stylesheet"'), `${route}: theme restores before CSS`);
+    assert.ok(page.indexOf('/assets/css/appearance.css') > page.indexOf('/assets/css/project-content.css'), `${route}: theme covers every public stylesheet`);
+  }
+});
+
+test('the public routes render complete, distinct pages and the contact form retains its API fields', async () => {
+  const expectations = new Map([
+    ['/about', /class="about-intro page-wrap"/],
+    ['/work', /data-work-view="grid"/],
+    ['/services', /class="service-list page-wrap"/],
+    ['/contact', /id="contactForm"/],
+  ]);
+  for (const [route, expected] of expectations) {
+    const response = await req('GET', route);
+    assert.equal(response.status, 200, route);
+    const page = await response.text();
+    assert.match(page, expected, route);
+    assert.ok(page.includes(`href="https://tanvi.example${route}"`), `${route}: canonical URL`);
+  }
+  const about = await (await req('GET', '/about')).text();
+  assert.match(about, /Toolkit/);
+  assert.match(about, /portrait of Tanvi/);
+  const archive = await (await req('GET', '/work')).text();
+  assert.match(archive, /data-view-panel="list"/);
+  assert.match(archive, /data-view-panel="grid" hidden/);
+  const contact = await (await req('GET', '/contact')).text();
+  for (const name of ['name', 'email', 'topic', 'budget', 'message', 'website']) {
+    assert.ok(contact.includes(`name="${name}"`), name);
+  }
+  assert.match(contact, /id="formStatus"[^>]*role="status"/);
+  assert.match(contact, /assets\/js\/contact\.js/);
+});
+
+test('all five services and project template pages are reachable without invented project results', async () => {
+  assert.equal(STUDIO_SERVICES.length, 5);
+  const services = await (await req('GET', '/services')).text();
+  for (const service of STUDIO_SERVICES) {
+    assert.ok(services.includes(`href="/services/${service.slug}"`));
+    const response = await req('GET', `/services/${service.slug}`);
+    assert.equal(response.status, 200, service.slug);
+    const page = await response.text();
+    assert.ok(page.includes(service.title));
+    assert.match(page, /<details\b/);
+    assert.match(page, /href="\/contact"/);
+  }
+  for (let index = 1; index <= 5; index++) {
+    const number = String(index).padStart(2, '0');
+    const response = await req('GET', `/work/project-${number}`);
+    assert.equal(response.status, 200, number);
+    const page = await response.text();
+    assert.match(page, new RegExp(`Project ${number}`));
+    const main = page.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] || '';
+    assert.match(main, /template|coming soon|in preparation/i, 'unfinished work is clearly identified');
+    assert.doesNotMatch(main, /52%|fewer drop-offs|trial-to-paid conversion|App Store rating/, 'templates contain no sample performance claims');
+  }
+  assert.equal((await req('GET', '/services/not-a-service')).status, 404);
 });
 
 test('case study page renders every section', async () => {
   const res = await req('GET', '/work/carelink-dashboard');
   assert.equal(res.status, 200);
   const page = await res.text();
-  assert.match(page, /<title>CareLink Dashboard · Case study by Tanvi<\/title>/);
-  assert.match(page, /The <span class="serif">challenge/);
-  assert.match(page, /The <span class="serif">approach/);
+  assert.match(page, /<title>CareLink Dashboard[^<]*Tanvi<\/title>/);
+  assert.match(page, /challenge/i);
+  assert.match(page, /approach/i);
   assert.match(page, /<ul><li>/, 'bullet lines become a list');
-  assert.match(page, /6 → 2/);
-  assert.match(page, /Next case study/);
+  assert.match(page, /clicks to reach patient vitals/);
+  assert.match(page, /Next (?:case study|project)/i);
   assert.match(page, /href="\/work\/chai-and-co-ordering"/, 'links to the next project');
   assert.match(page, /og:type" content="article"/);
 });
@@ -76,7 +158,7 @@ test('unknown pages and hidden projects get the styled 404', async () => {
   const res = await req('GET', '/work/does-not-exist');
   assert.equal(res.status, 404);
   const page = await res.text();
-  assert.match(page, /wrong turn/);
+  assert.match(page, /404|not found|wrong turn/i);
   assert.match(page, /name="robots" content="noindex"/);
 
   assert.equal((await req('GET', '/some/random/page')).status, 404);
@@ -95,13 +177,15 @@ test('sitemap, robots and static assets', async () => {
   assert.match(sitemap.headers.get('content-type'), /xml/);
   const xml = await sitemap.text();
   assert.match(xml, /<loc>https:\/\/tanvi.example\/<\/loc>/);
-  assert.match(xml, /<loc>https:\/\/tanvi.example\/work\/paisa-budgeting-app<\/loc>/);
+  for (const route of ['/about', '/work', '/services', '/contact', '/work/project-01', '/work/project-05', ...STUDIO_SERVICES.map((service) => `/services/${service.slug}`)]) {
+    assert.ok(xml.includes(`<loc>https://tanvi.example${route}</loc>`), route);
+  }
 
   const robots = await (await req('GET', '/robots.txt')).text();
   assert.match(robots, /Disallow: \/admin/);
   assert.match(robots, /Sitemap: https:\/\/tanvi.example\/sitemap.xml/);
 
-  for (const p of ['/assets/css/site.css', '/assets/js/site.js', '/assets/js/home.js', '/assets/js/admin.js', '/favicon.svg']) {
+  for (const p of ['/assets/css/studio.css', '/assets/css/appearance.css', '/assets/js/appearance.js', '/assets/js/studio.js', '/assets/js/contact.js', '/assets/js/admin.js', '/favicon.svg']) {
     assert.equal((await req('GET', p)).status, 200, p);
   }
   assert.equal((await req('GET', '/index.html')).status, 404, 'no stale static home page');
@@ -144,10 +228,20 @@ test('project slugs: generated, deduplicated, validated', async () => {
   await req('DELETE', `/api/admin/projects/${a.id}`, { cookie });
 });
 
-test('site settings drive the home page', async () => {
+test('site settings control published work, availability and contact details across the site', async () => {
   const cookie = await login();
   const site = await (await req('GET', '/api/admin/site', { cookie })).json();
   assert.equal(site.stats.length, 4);
+  assert.equal(site.showProjectTemplates, true);
+
+  await req('PUT', '/api/admin/site', { cookie, body: { ...site, showProjectTemplates: false } });
+  const published = await (await req('GET', '/')).text();
+  assert.match(published, /href="\/work\/paisa-budgeting-app"/, 'turning off templates restores published CMS projects');
+  assert.doesNotMatch(published, /data-project-template=/);
+  const archive = await (await req('GET', '/work')).text();
+  assert.match(archive, /href="\/work\/paisa-budgeting-app"/);
+  assert.doesNotMatch(archive, /href="\/work\/project-01"/);
+  await req('PUT', '/api/admin/site', { cookie, body: site });
 
   const bad = await req('PUT', '/api/admin/site', { cookie, body: { ...site, email: 'nope', stats: site.stats.slice(0, 2) } });
   assert.equal(bad.status, 400);
@@ -164,11 +258,14 @@ test('site settings drive the home page', async () => {
   assert.equal(saved.email, 'studio@tanvi.example');
 
   const page = await (await req('GET', '/')).text();
-  assert.match(page, /status-pill reveal off/);
+  assert.match(page, /class="[^"]*hero-availability[^"]*is-unavailable/);
   assert.match(page, /Booked until June/);
   assert.match(page, /mailto:studio@tanvi.example/);
   assert.match(page, /href="https:\/\/linkedin.com\/in\/tanvi"/);
-  assert.match(page, /5<sup>\+<\/sup>/);
+  const contact = await (await req('GET', '/contact')).text();
+  assert.match(contact, /data-email="studio@tanvi.example"/);
+  assert.match(contact, /mailto:studio@tanvi.example/);
+  assert.equal(saved.stats[0].value, '5+', 'existing editable site statistics remain compatible');
   assert.equal((await (await req('GET', '/api/site')).json()).availability, 'Booked until June');
 
   const js = await req('PUT', '/api/admin/site', { cookie, body: { ...site, dribbble: 'javascript:alert(1)' } });

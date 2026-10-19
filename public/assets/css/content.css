@@ -1,0 +1,112 @@
+/* Original portfolio content, presented in the studio's existing visual system. */
+.studio-site .about-portrait.about-portrait-real {
+  display: block;
+  aspect-ratio: auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.studio-site .about-portrait-real::before { display: none; }
+.studio-site .about-portrait-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  background: #fff;
+}
+.studio-site .about-portrait-real .portrait-caption {
+  position: static;
+  padding: 16px 20px;
+  color: var(--muted);
+  background: var(--surface);
+  font-size: 10px;
+}
+.studio-site .toolkit .imported-tool-list > li { padding-block: 17px; }
+.studio-site .imported-tool-list > li > span { display: block; color: var(--text); font-size: 13px; }
+.studio-site .imported-tool-list small {
+  display: block;
+  margin-top: 9px;
+  color: var(--muted);
+  font: 13px/1.6 var(--font);
+}
+.studio-site .about-links { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 34px; }
+.studio-site .about-process { padding-bottom: clamp(70px, 9vw, 130px); }
+.studio-site .process-intro { max-width: 48ch; color: var(--muted); font-size: 17px; line-height: 1.6; }
+
+/* One source certificate, without repeated placeholder credentials. */
+.studio-site .certification-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  align-items: center;
+  gap: clamp(30px, 5vw, 76px);
+  padding-block: 32px;
+  border-block: 1px solid var(--line);
+}
+.studio-site .certification-image-link {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+.studio-site .certification-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  transition: transform .6s var(--ease);
+}
+.studio-site .certificate-image-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 44px;
+  padding: 12px 17px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.studio-site .certificate-image-caption > span { color: var(--accent); font-size: 17px; }
+.studio-site .certification-feature-copy { min-width: 0; }
+.studio-site .certification-feature-copy .page-eyebrow { margin-bottom: 22px; }
+.studio-site .certification-feature-copy h3 { max-width: 18ch; font-size: clamp(29px, 3vw, 45px); line-height: 1.14; letter-spacing: -.035em; text-wrap: balance; }
+.studio-site .credential-meta { display: grid; margin-top: 30px; }
+.studio-site .credential-meta > div { display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1fr); gap: 15px; padding-block: 13px; border-top: 1px solid var(--line); }
+.studio-site .credential-meta dt { color: var(--label); font: 10px/1.7 var(--mono); text-transform: uppercase; letter-spacing: .035em; }
+.studio-site .credential-meta dd { margin: 0; color: var(--text); font-size: 14px; line-height: 1.6; }
+.studio-site .credential-link { margin-top: 27px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .studio-site .certification-image-link:hover .certification-image { transform: scale(1.015); }
+}
+@media (max-width: 900px) {
+  .studio-site .certification-feature { grid-template-columns: minmax(0, 1fr); align-items: start; gap: 30px; }
+  .studio-site .certification-feature-copy h3 { max-width: 28ch; font-size: clamp(30px, 5vw, 42px); }
+  .studio-site .credential-meta { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .studio-site .credential-meta > div { display: block; }
+  .studio-site .credential-meta dd { margin-top: 7px; }
+}
+@media (max-width: 600px) {
+  .studio-site .about-portrait-real .portrait-caption { padding: 14px 16px; font-size: 9px; }
+  .studio-site .toolkit .imported-tool-list { grid-template-columns: minmax(0, 1fr); }
+  .studio-site .toolkit .imported-tool-list > li { padding-block: 17px; }
+  .studio-site .imported-tool-list small { max-width: 42ch; font-size: 13px; }
+  .studio-site .about-links { align-items: start; flex-direction: column; gap: 20px; }
+  .studio-site .about-process .section-heading { align-items: start; gap: 22px; }
+  .studio-site .process-intro { font-size: 15px; }
+  .studio-site .certification-feature { padding-block: 24px; }
+  .studio-site .certification-feature-copy h3 { max-width: 21ch; font-size: clamp(28px, 7.3vw, 38px); }
+  .studio-site .credential-meta { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .studio-site .credential-meta > div { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1fr); }
+  .studio-site .credential-meta dd { margin-top: 0; }
+  .studio-site .credential-link { min-height: 44px; }
+}
+.motion-paused .studio-site .certification-image-link:hover .certification-image { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .studio-site .certification-image-link:hover .certification-image { transform: none; }
+}
+
+/* Imported project narrative and image styles can follow below. */

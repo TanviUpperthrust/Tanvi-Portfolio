@@ -1,69 +1,56 @@
-// Home page only: process scroller, testimonials carousel, contact form.
+// Home page only: motion controls, project filters, process, quotes and contact.
 (function () {
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var userPaused = false;
+  var reduce = motionPreference.matches;
+  var root = document.documentElement;
+  var pauseButtons = [].slice.call(document.querySelectorAll('[data-motion-toggle]'));
+  window.addEventListener('portfolio:motion', function (event) { reduce = event.detail.paused; });
 
-  /* A rotating deck: the designer first, followed by published projects. */
-  var deck = document.querySelector('.hero-deck');
-  var deckCards = [].slice.call(document.querySelectorAll('[data-deck-card]'));
-  if (deck && deckCards.length) {
-    var deckIndex = 0, deckTimer, deckPaused = reduce;
-    var pauseButton = document.getElementById('deckPause');
-    function renderDeck(announce) {
-      deckCards.forEach(function (card, i) {
-        var position = (i - deckIndex + deckCards.length) % deckCards.length;
-        card.dataset.position = position;
-        card.inert = position !== 0;
-        card.setAttribute('aria-hidden', String(position !== 0));
-      });
-      // Automatic rotation stays quiet for screen readers.
-      var status = document.getElementById('deckStatus');
-      status.setAttribute('aria-live', announce ? 'polite' : 'off');
-      status.textContent = deckCards[deckIndex].getAttribute('aria-label');
-    }
-    function scheduleDeck() {
-      clearInterval(deckTimer);
-      if (!deckPaused && !document.hidden && !deck.matches(':hover') && !deck.contains(document.activeElement)) {
-        deckTimer = setInterval(function () { deckIndex = (deckIndex + 1) % deckCards.length; renderDeck(false); }, 4800);
-      }
-    }
-    function moveDeck(direction) {
-      deckIndex = (deckIndex + direction + deckCards.length) % deckCards.length;
-      renderDeck(true); scheduleDeck();
-    }
-    document.getElementById('deckPrev').onclick = function () { moveDeck(-1); };
-    document.getElementById('deckNext').onclick = function () { moveDeck(1); };
-    function syncPauseButton() {
-      pauseButton.textContent = deckPaused ? 'Play' : 'Pause';
-      pauseButton.setAttribute('aria-label', deckPaused ? 'Play card animation' : 'Pause card animation');
-      pauseButton.setAttribute('aria-pressed', String(deckPaused));
-    }
-    pauseButton.onclick = function () { deckPaused = !deckPaused; syncPauseButton(); scheduleDeck(); };
-    deck.addEventListener('pointerenter', function () { clearInterval(deckTimer); });
-    deck.addEventListener('pointerleave', scheduleDeck);
-    deck.addEventListener('focusin', function () { clearInterval(deckTimer); });
-    deck.addEventListener('focusout', function () { setTimeout(scheduleDeck, 0); });
-    document.addEventListener('visibilitychange', scheduleDeck);
-    window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function (event) {
-      deckPaused = event.matches; syncPauseButton(); scheduleDeck();
+  function updateMotion() {
+    reduce = userPaused || motionPreference.matches;
+    root.classList.toggle('motion-paused', reduce);
+    pauseButtons.forEach(function (pauseButton) {
+      pauseButton.textContent = reduce ? 'Play motion' : 'Pause motion';
+      pauseButton.setAttribute('aria-pressed', String(reduce));
+      pauseButton.setAttribute('aria-label', motionPreference.matches ? 'Reduced motion is enabled in your device settings' : (reduce ? 'Play motion' : 'Pause motion'));
+      pauseButton.disabled = motionPreference.matches;
     });
-    renderDeck(false); syncPauseButton(); scheduleDeck();
+    window.dispatchEvent(new CustomEvent('portfolio:motion', { detail: { paused: reduce } }));
   }
+  pauseButtons.forEach(function (pauseButton) { pauseButton.addEventListener('click', function () { userPaused = !userPaused; updateMotion(); }); });
+  motionPreference.addEventListener('change', updateMotion);
 
-  document.querySelectorAll('[data-filter]').forEach(function (button) {
-    button.addEventListener('click', function () {
-      var count = 0;
-      document.querySelectorAll('[data-filter]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === button)); });
-      document.querySelectorAll('[data-platform]').forEach(function (card) {
-        card.hidden = button.dataset.filter !== 'all' && card.dataset.platform !== button.dataset.filter;
-        if (!card.hidden) { count++; card.classList.add('in'); }
-      });
-      document.getElementById('workCount').textContent = count + (count === 1 ? ' project' : ' projects');
+  updateMotion();
+
+  function filterProjects(button) {
+    var count = 0, templates = 0, pending = 0;
+    document.querySelectorAll('[data-filter]').forEach(function (control) { control.setAttribute('aria-pressed', String(control === button)); });
+    document.querySelectorAll('[data-platform]').forEach(function (card) {
+      card.hidden = button.dataset.filter !== 'all' && card.dataset.platform !== button.dataset.filter;
+      if (card.hidden) return;
+      card.classList.add('in');
+      if (card.dataset.projectTemplate === 'true') templates++;
+      else if (card.dataset.platform === 'pending') pending++;
+      else count++;
     });
+    var parts = [];
+    if (count) parts.push(count + (count === 1 ? ' project' : ' projects'));
+    if (templates) parts.push(templates + (templates === 1 ? ' project template' : ' project templates'));
+    if (pending) parts.push(pending + ' coming soon');
+    var workCount = document.getElementById('workCount');
+    if (workCount) workCount.textContent = parts.length ? parts.join(' + ') : '0 projects';
+  }
+  var filters = [].slice.call(document.querySelectorAll('[data-filter]'));
+  filters.forEach(function (button) {
+    button.addEventListener('click', function () { filterProjects(button); });
   });
+  var initialFilter = filters.find(function (button) { return button.getAttribute('aria-pressed') === 'true'; }) || filters[0];
+  if (initialFilter) filterProjects(initialFilter);
 
   /* ---------- Process scroller: buttons + drag ---------- */
   var steps = document.getElementById('steps');
-  function stepBy(dir) { steps.scrollBy({ left: dir * (steps.firstElementChild.offsetWidth + 16), behavior: 'smooth' }); }
+  function stepBy(dir) { steps.scrollBy({ left: dir * (steps.firstElementChild.offsetWidth + 16), behavior: reduce ? 'instant' : 'smooth' }); }
   document.getElementById('stepPrev').onclick = function () { stepBy(-1); };
   document.getElementById('stepNext').onclick = function () { stepBy(1); };
   var drag = null;
@@ -90,14 +77,20 @@
         document.getElementById('quoteName').textContent = q.name;
         document.getElementById('quoteRole').textContent = q.role;
         box.classList.remove('out');
-      }, 300);
+      }, reduce ? 0 : 300);
     };
     var nextQ = function (d) { qi = (qi + d + quotes.length) % quotes.length; showQuote(qi); };
     var auto;
-    var resetAuto = function () { clearInterval(auto); if (!reduce) auto = setInterval(function () { nextQ(1); }, 7000); };
+    var resetAuto = function () { clearInterval(auto); if (!reduce && !document.hidden && !box.contains(document.activeElement) && !box.matches(':hover')) auto = setInterval(function () { nextQ(1); }, 7000); };
     document.getElementById('qPrev').onclick = function () { nextQ(-1); resetAuto(); };
     document.getElementById('qNext').onclick = function () { nextQ(1); resetAuto(); };
     resetAuto();
+    window.addEventListener('portfolio:motion', resetAuto);
+    document.addEventListener('visibilitychange', resetAuto);
+    box.addEventListener('pointerenter', function () { clearInterval(auto); });
+    box.addEventListener('pointerleave', resetAuto);
+    box.addEventListener('focusin', function () { clearInterval(auto); });
+    box.addEventListener('focusout', function () { setTimeout(resetAuto, 0); });
   }
 
   /* ---------- Contact form ---------- */
