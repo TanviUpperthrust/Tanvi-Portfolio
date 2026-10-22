@@ -23,7 +23,7 @@ export function homePage({ site, projects = [], siteUrl }) {
     </div>
   </section>
   <section class="about-teaser page-wrap" id="about"><p class="section-label" data-reveal>A LITTLE ABOUT ME</p><p class="about-statement" data-reveal>Expressive by <span class="hl">nature.</span><br>Inventive in the <span class="hl">process.</span><br><em>Thoughtful in the <span class="hl">details.</span></em></p><div class="about-teaser-bottom"><p class="home-lead" data-reveal>${PROFILE.lead.split(/(?<=\.) /).map(sentence => html`<span>${sentence}</span>`)}</p><a class="text-link" href="/about">More about me <span aria-hidden="true">↗</span></a></div></section>
-  <section class="home-services page-wrap" id="services"><div class="section-head mono"><p class="section-label">WHAT I DO</p><a href="/services">ALL SERVICES ↗</a></div><h2 class="services-board-title" data-reveal>Good design,<br>from the <em>inside out.</em></h2>${servicesBoard(STUDIO_SERVICES)}</section>
+  <section class="home-services page-wrap" id="services"><h2 class="services-board-title" data-reveal>Good design,<br>from the <em>inside out.</em></h2>${servicesBoard(STUDIO_SERVICES)}</section>
   ${certificationsSection()}`;
   return layout({ title: 'Tanvi — UI / UX Designer', description: 'Thoughtful digital experiences, expressive interfaces and an inventive approach to design. Explore Tanvi’s UI / UX portfolio.', siteUrl, site, body });
 }

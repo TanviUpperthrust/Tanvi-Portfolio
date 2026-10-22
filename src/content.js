@@ -5,7 +5,7 @@ export const THEMES = ['s1', 's2', 's3', 's4'];
 export const LAYOUTS = ['phone', 'wide', 'phone-profile', 'wide-sidebar'];
 
 // Contact form choices.
-export const TOPICS = ['UX research', 'UI design', 'Full product design', 'Design system', 'Prototyping', 'Something else'];
+export const TOPICS = ['UI/UX design', 'Website design & redesign', 'AI-powered design', 'AI chatbot & conversational UX', 'Frontend development', 'Brand & digital content design', 'UX research & accessibility', 'Something else'];
 export const BUDGETS = ['Under ₹1L', '₹1L – ₹3L', '₹3L – ₹6L', '₹6L+', 'Not sure yet'];
 
 export function slugify(s) {

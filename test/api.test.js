@@ -83,7 +83,7 @@ test('honeypot submissions are silently dropped', async () => {
 
 test('valid message is stored, emailed and visible to admin', async () => {
   const res = await req('POST', '/api/contact', {
-    body: { name: 'Priya', email: 'priya@example.com', topic: 'UI design', budget: 'Not sure yet', message: 'We need a redesign of our onboarding.' },
+    body: { name: 'Priya', email: 'priya@example.com', topic: 'UI/UX design', budget: 'Not sure yet', message: 'We need a redesign of our onboarding.' },
   });
   assert.equal(res.status, 201);
   await new Promise((r) => setImmediate(r));

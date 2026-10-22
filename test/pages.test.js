@@ -1,4 +1,4 @@
-import { test, before, after } from 'node:test';
+﻿import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -91,7 +91,7 @@ test('the public routes render complete, distinct pages and the contact form ret
   const expectations = new Map([
     ['/about', /class="about-intro page-wrap"/],
     ['/work', /data-work-view="grid"/],
-    ['/services', /class="service-list page-wrap"/],
+    ['/services', /class="services-offerings simple-services page-wrap"/],
     ['/contact', /id="contactForm"/],
   ]);
   for (const [route, expected] of expectations) {
@@ -115,15 +115,15 @@ test('the public routes render complete, distinct pages and the contact form ret
   assert.match(contact, /assets\/js\/contact\.js/);
 });
 
-test('all five services and project template pages are reachable without invented project results', async () => {
-  assert.equal(STUDIO_SERVICES.length, 5);
+test('all seven services and project template pages are reachable without invented project results', async () => {
+  assert.equal(STUDIO_SERVICES.length, 7);
   const services = await (await req('GET', '/services')).text();
   for (const service of STUDIO_SERVICES) {
     assert.ok(services.includes(`href="/services/${service.slug}"`));
     const response = await req('GET', `/services/${service.slug}`);
     assert.equal(response.status, 200, service.slug);
     const page = await response.text();
-    assert.ok(page.includes(service.title));
+    assert.ok(page.includes(service.title.replaceAll('&', '&amp;')));
     assert.match(page, /<details\b/);
     assert.match(page, /href="\/contact"/);
   }
@@ -291,3 +291,4 @@ test('a database from the previous version upgrades in place', () => {
   assert.equal(rows[0].metrics, '[]');
   upgraded.close();
 });
+

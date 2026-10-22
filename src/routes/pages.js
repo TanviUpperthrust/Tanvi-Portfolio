@@ -7,6 +7,7 @@ import { aboutPage, workPage, servicesPage, serviceDetailPage, contactPage } fro
 import { STUDIO_SERVICES, getStudioService } from '../studioServices.js';
 import { getShowcaseProjects } from '../showcase.js';
 import { esc } from '../views/html.js';
+import { getWorkProjects } from '../workContent.js';
 
 export function pageRoutes({ db, siteStore, config }) {
   const r = Router();
@@ -22,7 +23,10 @@ export function pageRoutes({ db, siteStore, config }) {
   const origin = (req) => config.siteUrl || `${req.protocol}://${req.get('host')}`;
   r.get('/', (req, res) => send(res, homePage(context())));
   r.get('/about', (req, res) => send(res, aboutPage(context())));
-  r.get('/work', (req, res) => send(res, workPage(context())));
+  r.get('/work', (req, res) => {
+    const ctx = context();
+    send(res, workPage({ ...ctx, projects: getWorkProjects(ctx, published.all().map(fromRow)) }));
+  });
   r.get('/services', (req, res) => send(res, servicesPage(context())));
   r.get('/contact', (req, res) => send(res, contactPage(context())));
   r.get('/services/:slug', (req, res, next) => {
@@ -32,7 +36,7 @@ export function pageRoutes({ db, siteStore, config }) {
   });
   r.get('/work/:slug', (req, res, next) => {
     const ctx = context();
-    let projects = ctx.projects;
+    let projects = getWorkProjects(ctx, published.all().map(fromRow));
     let index = projects.findIndex((project) => project.slug === req.params.slug);
     if (index === -1) {
       projects = published.all().map(fromRow);

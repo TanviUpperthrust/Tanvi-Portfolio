@@ -162,7 +162,7 @@ test('published case studies render every imported section and image in order wi
   assert.equal(response.status, 200);
   const page = await response.text();
   const main = page.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] || '';
-  assert.equal((main.match(/class="project-content-section"/g) || []).length, 3, 'image-only and text-only chapters remain present');
+  assert.equal((main.match(/class="project-content-section"/g) || []).length, 2, 'text chapters remain present while images are woven between them');
   assert.match(main, /Context &lt;script&gt;alert\(&quot;heading&quot;\)&lt;\/script&gt;/);
   assert.match(main, /<em>intentional emphasis<\/em>/);
   assert.match(main, /&lt;img src=x onerror=alert\(1\)&gt;/);

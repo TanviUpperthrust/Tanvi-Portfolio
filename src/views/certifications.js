@@ -4,7 +4,6 @@ import { CERTIFICATIONS } from '../portfolioProfile.js';
 // The original site repeated this certificate; display the unique credential once.
 export function certificationsSection() {
   return html`<section class="certifications page-wrap" id="certifications" aria-labelledby="certificationsTitle">
-    <div class="section-head mono"><p class="section-label">CERTIFICATIONS</p><span class="certifications-note">A CURIOUS MIND, ALWAYS.</span></div>
     <div class="certifications-intro"><h2 id="certificationsTitle" data-reveal>Always learning.<br><em>Always evolving.</em></h2><p data-reveal>Continued learning in design strategy, future trends and implementation with AI.</p></div>
     ${CERTIFICATIONS.map((certificate) => html`<article class="certification-feature" data-reveal>
       <a class="certification-image-link" href="${certificate.image}" target="_blank" rel="noopener" aria-label="Open full-size certificate: ${certificate.title}"><img class="certification-image" src="${certificate.image}" alt="Tanvi Jain’s certificate for ${certificate.title}, issued by ${certificate.issuer} through ${certificate.platform}" width="3130" height="2333" loading="lazy" decoding="async"/></a>

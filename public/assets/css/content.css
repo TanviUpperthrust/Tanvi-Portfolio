@@ -110,3 +110,7 @@
 }
 
 /* Imported project narrative and image styles can follow below. */
+/* Keep body copy out of the large display-heading typography. */
+.studio-site .about-process-heading { display: grid; gap: 20px; font-size: 16px; line-height: 1.5; letter-spacing: normal; }
+.studio-site .about-process-heading .process-intro { max-width: 60ch; font-size: 17px; line-height: 1.7; letter-spacing: normal; }
+@media (max-width: 600px) { .studio-site .about-process-heading .process-intro { font-size: 15px; } }

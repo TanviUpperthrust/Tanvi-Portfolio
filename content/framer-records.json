@@ -1,0 +1,758 @@
+[
+  {
+    "id": "wUBvCE1bR",
+    "createdAt": 1745467439733,
+    "updatedAt": 1776061539849,
+    "nextItemId": "vuXEUG5av",
+    "txuc2BYLR": "TWO FACTOR AUTHENTICATION",
+    "FCspUx7gv": "two-factor-authentication",
+    "iQr9kKVMg": false,
+    "dJVPEgPTs": 1738022400000,
+    "gPcsfhEl_": "ajvJHb3kR",
+    "Cgfgqj7KU": "https://www.figma.com/design/jRIZKXlCkbODUfShHFUWtW/Usability-Testing-Project?node-id=2013-646&t=dFYi8AvdpwNaFgzW-1",
+    "ybgTKbfC1": "Apoorva Gadgil Gijare",
+    "J8sDnFjS0": "Tanvi, Prathmesh, Nisha, Kshitij",
+    "aaJdfYesh": "4 weeks",
+    "dMzbnq2mw": "A comprehensive usability study exploring how two-factor authentication impacts user experience, security perception, and accessibility in Indian banking apps, highlighting key challenges and opportunities to create a more seamless and trustworthy digital banking experience",
+    "AtZcGqORN": {
+      "src": "https://framerusercontent.com/images/AWr1m4gSxFQXtmzlX4GFlDoAtk.png?width=1365&height=802",
+      "srcSet": "https://framerusercontent.com/images/AWr1m4gSxFQXtmzlX4GFlDoAtk.png?scale-down-to=512&width=1365&height=802 512w,https://framerusercontent.com/images/AWr1m4gSxFQXtmzlX4GFlDoAtk.png?scale-down-to=1024&width=1365&height=802 1024w,https://framerusercontent.com/images/AWr1m4gSxFQXtmzlX4GFlDoAtk.png?width=1365&height=802 1365w",
+      "pixelWidth": 1365,
+      "pixelHeight": 802,
+      "alt": "Project Cover Image"
+    },
+    "XJMvwvNW0": {
+      "src": "https://framerusercontent.com/images/U4EB6lJGgOJLioTreTlh5blHY.png?width=1758&height=746",
+      "srcSet": "https://framerusercontent.com/images/U4EB6lJGgOJLioTreTlh5blHY.png?scale-down-to=512&width=1758&height=746 512w,https://framerusercontent.com/images/U4EB6lJGgOJLioTreTlh5blHY.png?scale-down-to=1024&width=1758&height=746 1024w,https://framerusercontent.com/images/U4EB6lJGgOJLioTreTlh5blHY.png?width=1758&height=746 1758w",
+      "pixelWidth": 1758,
+      "pixelHeight": 746,
+      "alt": ""
+    },
+    "RQMgc6ez4": {
+      "src": "https://framerusercontent.com/images/AiublnglKJFbeeXKavzVm8U3s.png?width=395&height=275",
+      "pixelWidth": 395,
+      "pixelHeight": 275
+    },
+    "khzsjimqK": {
+      "src": "https://framerusercontent.com/images/Doq6eNQJnDTf8iozp5XM0gBHE.png?width=363&height=290",
+      "pixelWidth": 363,
+      "pixelHeight": 290
+    },
+    "FyPs61Ai9": {
+      "src": "https://framerusercontent.com/images/xWcqyKm0cX075fwuxK69X5RMCK8.png?width=367&height=275",
+      "pixelWidth": 367,
+      "pixelHeight": 275
+    },
+    "wFvjhOq6c": {
+      "src": "https://framerusercontent.com/images/Aqv2JoDgD6ZonjbOJjIurwluGI.png?width=438&height=275",
+      "pixelWidth": 438,
+      "pixelHeight": 275
+    },
+    "BDYn_1i4J": "RESEARCH & UNDERSTANDING :",
+    "GUwUlkOlg": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We began by conducting secondary research to study how two-factor authentication is implemented across Indian banking apps. This helped us understand existing systems, security methods, and industry practices."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We also gathered insights on user behavior, focusing on how different users interact with authentication processes and what challenges they face during login and verification."
+        ]
+      ]
+    ],
+    "l_cB_OdHP": "Solution :",
+    "LCqLUxlhK": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We conducted usability testing on multiple banking apps, focusing specifically on the login process involving 2FA methods such as OTP, biometrics, and authenticator apps. Users were asked to complete tasks while we observed their actions."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We measured key factors like task completion time, error rates, and user satisfaction to evaluate how efficient and user-friendly each authentication method is."
+        ]
+      ]
+    ],
+    "lWBIMPM8u": "Challenge :",
+    "Kdq3qCWEi": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "The study revealed several usability issues, including OTP delays, dependency on network connectivity, and confusion during multi-step authentication. Users often felt frustrated when processes were slow or unclear."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We also found that while users value security, they prefer faster and simpler methods like biometrics, and tend to trust systems that are familiar and easy to use."
+        ]
+      ]
+    ],
+    "VlrhhnzCF": "Summary :",
+    "XlJpyojfY": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "Based on the findings, we proposed improvements such as multi-modal authentication, allowing users to choose between OTP, biometrics, or authenticator apps for better flexibility."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We also suggested simplifying the login flow, improving error handling, and providing clear recovery options to create a smoother and more reliable authentication experience."
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "vuXEUG5av",
+    "createdAt": 1745467362573,
+    "updatedAt": 1776059669267,
+    "previousItemId": "wUBvCE1bR",
+    "nextItemId": "lXyg0mtPk",
+    "txuc2BYLR": "PANCHKALYANAK\nMANAGEMENT SYSTEM",
+    "FCspUx7gv": "panchkalyanak-management-system",
+    "iQr9kKVMg": true,
+    "dJVPEgPTs": 1739923200000,
+    "gPcsfhEl_": "wGPfGRism",
+    "Cgfgqj7KU": "https://www.figma.com/design/Ves2QNDshFuxFVYrVyYmPT/Service-Design-Project?node-id=0-1&t=zcJpUFg7e2nG331e-1",
+    "ybgTKbfC1": "Shruti Deshpande",
+    "J8sDnFjS0": "Tanvi Jain",
+    "aaJdfYesh": "5 weeks",
+    "dMzbnq2mw": "A service design research project focused on understanding and improving the management system of Digambar Jain Panchkalyanak at Namokar Tirth. The project explores how large-scale spiritual events operate as temporary cities, highlighting challenges in accommodation, food systems, volunteer coordination, and information flow to design a more seamless and organized experience.",
+    "AtZcGqORN": {
+      "src": "https://framerusercontent.com/images/Tlf5KTMla5lBbk8KiQMusVE.jpg?width=1365&height=802",
+      "srcSet": "https://framerusercontent.com/images/Tlf5KTMla5lBbk8KiQMusVE.jpg?scale-down-to=512&width=1365&height=802 512w,https://framerusercontent.com/images/Tlf5KTMla5lBbk8KiQMusVE.jpg?scale-down-to=1024&width=1365&height=802 1024w,https://framerusercontent.com/images/Tlf5KTMla5lBbk8KiQMusVE.jpg?width=1365&height=802 1365w",
+      "pixelWidth": 1365,
+      "pixelHeight": 802,
+      "alt": "Featured Project Cover Image"
+    },
+    "XJMvwvNW0": {
+      "src": "https://framerusercontent.com/images/WVpHA14wHjOp2Zqy4HrB67hWVw.png?width=1200&height=675",
+      "srcSet": "https://framerusercontent.com/images/WVpHA14wHjOp2Zqy4HrB67hWVw.png?scale-down-to=512&width=1200&height=675 512w,https://framerusercontent.com/images/WVpHA14wHjOp2Zqy4HrB67hWVw.png?scale-down-to=1024&width=1200&height=675 1024w,https://framerusercontent.com/images/WVpHA14wHjOp2Zqy4HrB67hWVw.png?width=1200&height=675 1200w",
+      "pixelWidth": 1200,
+      "pixelHeight": 675
+    },
+    "RQMgc6ez4": {
+      "src": "https://framerusercontent.com/images/e8yI60bqf9bn1VG1CSM7LCWtLk.png?width=845&height=634",
+      "srcSet": "https://framerusercontent.com/images/e8yI60bqf9bn1VG1CSM7LCWtLk.png?scale-down-to=512&width=845&height=634 512w,https://framerusercontent.com/images/e8yI60bqf9bn1VG1CSM7LCWtLk.png?width=845&height=634 845w",
+      "pixelWidth": 845,
+      "pixelHeight": 634
+    },
+    "khzsjimqK": {
+      "src": "https://framerusercontent.com/images/Nt6caGFYat0lyQRqTSsSeHBr5cQ.png?width=1531&height=2022",
+      "srcSet": "https://framerusercontent.com/images/Nt6caGFYat0lyQRqTSsSeHBr5cQ.png?scale-down-to=1024&width=1531&height=2022 775w,https://framerusercontent.com/images/Nt6caGFYat0lyQRqTSsSeHBr5cQ.png?width=1531&height=2022 1531w",
+      "pixelWidth": 1531,
+      "pixelHeight": 2022
+    },
+    "FyPs61Ai9": {
+      "src": "https://framerusercontent.com/images/Rj0Ez5VU0m6neoNfeFEWpHKlG4.jpg?width=1200&height=800",
+      "srcSet": "https://framerusercontent.com/images/Rj0Ez5VU0m6neoNfeFEWpHKlG4.jpg?scale-down-to=512&width=1200&height=800 512w,https://framerusercontent.com/images/Rj0Ez5VU0m6neoNfeFEWpHKlG4.jpg?scale-down-to=1024&width=1200&height=800 1024w,https://framerusercontent.com/images/Rj0Ez5VU0m6neoNfeFEWpHKlG4.jpg?width=1200&height=800 1200w",
+      "pixelWidth": 1200,
+      "pixelHeight": 800
+    },
+    "BDYn_1i4J": "RESEARCH & UNDERSTANDING :",
+    "GUwUlkOlg": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We began by conducting secondary research to understand how large-scale religious events like Digambar Jain Panchkalyanak are organized. This helped us learn about existing systems, including accommodation, food services, volunteer coordination, and crowd management."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We also explored how such events function as temporary cities, where multiple services operate simultaneously. This helped us identify the complexity of managing spiritual events at such a large scale."
+        ]
+      ]
+    ],
+    "l_cB_OdHP": "Field Research & Observation :",
+    "LCqLUxlhK": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We conducted primary research at Namokar Tirth Panchkalyanak through field visits and 15+ interviews with organizers, volunteers, food coordinators, security staff, and medical teams."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We observed real-time operations across different areas such as tent accommodation, bhojanshala, ahar distribution, stage management, and health camps. This helped us understand how the system works on ground and how people interact within it."
+        ]
+      ]
+    ],
+    "lWBIMPM8u": "Key Insights & Findings :",
+    "Kdq3qCWEi": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "The research revealed several challenges in the current system, such as manual registration processes, lack of coordination between departments, confusion in food distribution areas, and heavy dependency on volunteers."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We found that while the event is well-managed through strong community effort, the absence of an integrated system leads to inefficiencies and confusion. At the same time, hospitality, devotion, and participation were very strong positive aspects."
+        ]
+      ]
+    ],
+    "VlrhhnzCF": "Design Direction :",
+    "XlJpyojfY": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "Based on the findings, we proposed designing an integrated service management system to improve coordination across all event operations."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "The focus is on creating a seamless experience by improving accommodation allocation, food system flow, volunteer management, and information access, while ensuring that religious practices and spiritual values remain untouched"
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "lXyg0mtPk",
+    "createdAt": 1745467172995,
+    "updatedAt": 1776062176039,
+    "previousItemId": "vuXEUG5av",
+    "nextItemId": "QjyDwLndn",
+    "txuc2BYLR": "PROCUREMENT AND INVENTORY MANAGEMENT SYSTEM",
+    "FCspUx7gv": "procurement-and-inventory-management-system",
+    "iQr9kKVMg": false,
+    "dJVPEgPTs": 1743292800000,
+    "gPcsfhEl_": "amxwg6iY3",
+    "Cgfgqj7KU": "https://www.figma.com/design/NEmMBofW2TO4Kl5fiHCpeE/Untitled?node-id=0-1&t=ySy8Q3rSXhut7V0z-1",
+    "ybgTKbfC1": "Rohith V Raj T M",
+    "J8sDnFjS0": "Tanvi Jain ",
+    "aaJdfYesh": "4 weeks",
+    "dMzbnq2mw": "A user-centered digital solution designed to simplify procurement and inventory management for hotels, restaurants, and agriculture sectors. The system focuses on seamless vendor connection, real-time stock tracking, and efficient order management to reduce wastage and improve operational efficiency.",
+    "AtZcGqORN": {
+      "src": "https://framerusercontent.com/images/XPxBlWmFFr9cGfY6XedQLKiVA.png?width=1365&height=802",
+      "srcSet": "https://framerusercontent.com/images/XPxBlWmFFr9cGfY6XedQLKiVA.png?scale-down-to=512&width=1365&height=802 512w,https://framerusercontent.com/images/XPxBlWmFFr9cGfY6XedQLKiVA.png?scale-down-to=1024&width=1365&height=802 1024w,https://framerusercontent.com/images/XPxBlWmFFr9cGfY6XedQLKiVA.png?width=1365&height=802 1365w",
+      "pixelWidth": 1365,
+      "pixelHeight": 802
+    },
+    "XJMvwvNW0": {
+      "src": "https://framerusercontent.com/images/R54J06xLHywQ2PhRGdE4eHIy6s.png?width=2400&height=1600",
+      "srcSet": "https://framerusercontent.com/images/R54J06xLHywQ2PhRGdE4eHIy6s.png?scale-down-to=512&width=2400&height=1600 512w,https://framerusercontent.com/images/R54J06xLHywQ2PhRGdE4eHIy6s.png?scale-down-to=1024&width=2400&height=1600 1024w,https://framerusercontent.com/images/R54J06xLHywQ2PhRGdE4eHIy6s.png?scale-down-to=2048&width=2400&height=1600 2048w,https://framerusercontent.com/images/R54J06xLHywQ2PhRGdE4eHIy6s.png?width=2400&height=1600 2400w",
+      "pixelWidth": 2400,
+      "pixelHeight": 1600
+    },
+    "RQMgc6ez4": {
+      "src": "https://framerusercontent.com/images/u9FoNpRUJbMlqvcRUrNSdjLWoY.png?width=488&height=325",
+      "pixelWidth": 488,
+      "pixelHeight": 325
+    },
+    "khzsjimqK": {
+      "src": "https://framerusercontent.com/images/R54J06xLHywQ2PhRGdE4eHIy6s.png?width=2400&height=1600",
+      "srcSet": "https://framerusercontent.com/images/R54J06xLHywQ2PhRGdE4eHIy6s.png?scale-down-to=512&width=2400&height=1600 512w,https://framerusercontent.com/images/R54J06xLHywQ2PhRGdE4eHIy6s.png?scale-down-to=1024&width=2400&height=1600 1024w,https://framerusercontent.com/images/R54J06xLHywQ2PhRGdE4eHIy6s.png?scale-down-to=2048&width=2400&height=1600 2048w,https://framerusercontent.com/images/R54J06xLHywQ2PhRGdE4eHIy6s.png?width=2400&height=1600 2400w",
+      "pixelWidth": 2400,
+      "pixelHeight": 1600
+    },
+    "BDYn_1i4J": "Research & Problem Understanding :",
+    "GUwUlkOlg": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "Conducted primary and secondary research to understand how hotel owners and vendors currently manage procurement and inventory."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "Through interviews and surveys, key pain points like manual tracking, stock mismanagement, and vendor miscommunication were identified. Competitor analysis helped in understanding existing gaps in the market and defining a focused problem statement."
+        ]
+      ]
+    ],
+    "l_cB_OdHP": "Information Architecture & User Flows :",
+    "LCqLUxlhK": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "Structured the system and mapped how users interact with the app."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "Created detailed user flows for onboarding, ordering, and inventory management to ensure a smooth and logical experience. Developed sitemap and hierarchy to organize features like stock tracking, vendor connection, and payments in a simple and accessible way."
+        ]
+      ]
+    ],
+    "lWBIMPM8u": "UX/UI Design & Wireframing :",
+    "Kdq3qCWEi": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "Delivered a complete digital solution addressing the identified problem."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "The final app simplifies procurement and inventory management by integrating real-time stock updates, vendor ordering, and payment systems in one platform. The solution improves efficiency, reduces wastage, and enhances communication between hotels and vendors."
+        ]
+      ]
+    ],
+    "VlrhhnzCF": "Solution & Final Outcome :",
+    "XlJpyojfY": [
+      1,
+      [
+        4,
+        "p",
+        null,
+        [
+          5,
+          "The \"Intenza Brand Boutique E-Gift Card Design\" project successfully delivers a digital gift card that embodies both modern minimalism and the premium, active spirit of the brand. By combining a sleek black holder with a dynamic, fitness-inspired card image, the design stands out as both elegant and energetic."
+        ]
+      ],
+      [
+        4,
+        "p",
+        null,
+        [
+          5,
+          "This project demonstrates how thoughtful design can elevate a simple product into a powerful brand statement, enhancing the gifting experience for both giver and recipient."
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "QjyDwLndn",
+    "createdAt": 1744721139795,
+    "updatedAt": 1776062498314,
+    "previousItemId": "lXyg0mtPk",
+    "nextItemId": "AjRdQzlTz",
+    "txuc2BYLR": "NOISE POLLUTION IN FESTIVALS & EVENTS",
+    "FCspUx7gv": "summer-vibes-festival-campaign",
+    "iQr9kKVMg": true,
+    "dJVPEgPTs": 1740441600000,
+    "gPcsfhEl_": "tJtKqZO1V",
+    "Cgfgqj7KU": "2024",
+    "ybgTKbfC1": "FestivalWorks",
+    "J8sDnFjS0": "Event / Festival",
+    "aaJdfYesh": "4 weeks",
+    "dMzbnq2mw": "A research-driven design project exploring how noise from festivals and events impacts health, daily life, and urban communities, aiming to create balanced solutions between cultural celebration and community well-being.",
+    "AtZcGqORN": {
+      "src": "https://framerusercontent.com/images/GivM1EZAZQZoRAyddarfiYeMuE.jpg?width=1350&height=802",
+      "pixelWidth": 1350,
+      "pixelHeight": 802,
+      "alt": "Featured Project Cover Image"
+    },
+    "XJMvwvNW0": {
+      "src": "https://framerusercontent.com/images/w3qzuZjcPGsjmXjiqY5GyQF52Q.png?width=462&height=165",
+      "pixelWidth": 462,
+      "pixelHeight": 165
+    },
+    "RQMgc6ez4": {
+      "src": "https://framerusercontent.com/images/RN67RiDGkRZpVJGzLiAzH471EU.png?width=779&height=438",
+      "srcSet": "https://framerusercontent.com/images/RN67RiDGkRZpVJGzLiAzH471EU.png?scale-down-to=512&width=779&height=438 512w,https://framerusercontent.com/images/RN67RiDGkRZpVJGzLiAzH471EU.png?width=779&height=438 779w",
+      "pixelWidth": 779,
+      "pixelHeight": 438
+    },
+    "khzsjimqK": {
+      "src": "https://framerusercontent.com/images/FpMnjdIx5fGPWfoXZUcdbXEOZdk.png?width=545&height=409",
+      "srcSet": "https://framerusercontent.com/images/FpMnjdIx5fGPWfoXZUcdbXEOZdk.png?scale-down-to=512&width=545&height=409 512w,https://framerusercontent.com/images/FpMnjdIx5fGPWfoXZUcdbXEOZdk.png?width=545&height=409 545w",
+      "pixelWidth": 545,
+      "pixelHeight": 409
+    },
+    "FyPs61Ai9": {
+      "src": "https://framerusercontent.com/images/EITi5QTOPWfDXwQq1KDpx3O7xtc.jpeg?width=960&height=1200",
+      "srcSet": "https://framerusercontent.com/images/EITi5QTOPWfDXwQq1KDpx3O7xtc.jpeg?scale-down-to=1024&width=960&height=1200 819w,https://framerusercontent.com/images/EITi5QTOPWfDXwQq1KDpx3O7xtc.jpeg?width=960&height=1200 960w",
+      "pixelWidth": 960,
+      "pixelHeight": 1200
+    },
+    "wFvjhOq6c": {
+      "src": "https://framerusercontent.com/images/zwp3WwehotGmPkcok3g5gLZiPk.png?width=546&height=409",
+      "srcSet": "https://framerusercontent.com/images/zwp3WwehotGmPkcok3g5gLZiPk.png?scale-down-to=512&width=546&height=409 512w,https://framerusercontent.com/images/zwp3WwehotGmPkcok3g5gLZiPk.png?width=546&height=409 546w",
+      "pixelWidth": 546,
+      "pixelHeight": 409
+    },
+    "BDYn_1i4J": "RESEARCH & DISCOVERY :",
+    "GUwUlkOlg": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "In this project, we conducted primary research through interviews and surveys to understand how noise from festivals and events impacts people’s daily lives, health, and environment. We interacted with key stakeholders like residents, police, doctors, and shopkeepers to gather diverse real-world perspectives."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "The research revealed patterns such as frequent exposure to loud noise, peak disturbance during evenings and nights, and strong effects on vulnerable groups like children, elderly, and students. These insights helped us build a clear understanding of the problem context."
+        ]
+      ]
+    ],
+    "l_cB_OdHP": "PROBLEM DEFINITION :",
+    "LCqLUxlhK": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "After analyzing the research data, we identified major issues including health impacts, ineffective complaint systems, and challenges faced by authorities in enforcing noise regulations. There was also a clear gap between awareness and actual behavior during festivals."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We framed a problem statement focusing on the conflict between cultural celebrations and community well-being, highlighting the need for a balanced approach that respects traditions while minimizing negative impacts on society."
+        ]
+      ]
+    ],
+    "lWBIMPM8u": "IDEATION & SOLUTION DESIGN :",
+    "Kdq3qCWEi": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "Based on the defined problem, we explored multiple solution directions such as awareness systems, improved communication channels, and better coordination between stakeholders. The focus was on creating solutions that are practical, inclusive, and culturally sensitive."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We developed a concept that aims to reduce noise-related issues through structured systems and behavioral change, ensuring that festivals can be celebrated responsibly without compromising people’s health and daily life."
+        ]
+      ]
+    ],
+    "VlrhhnzCF": "TESTING & KEY INSIGHTS :",
+    "XlJpyojfY": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We evaluated our ideas through user feedback and usability thinking to understand how effective and acceptable the solutions are in real-world scenarios. This helped us identify gaps in usability, accessibility, and user trust."
+        ]
+      ],
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "The testing phase highlighted the importance of simple reporting systems, early planning, and awareness. It reinforced that solving noise pollution requires not just rules, but better communication, collaboration, and user-centered design."
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "AjRdQzlTz",
+    "createdAt": 1744721048165,
+    "updatedAt": 1776062552081,
+    "previousItemId": "QjyDwLndn",
+    "txuc2BYLR": "SMART KITCHEN MANAGEMENT SYSTEM",
+    "FCspUx7gv": "smart-kitchen-management-system",
+    "iQr9kKVMg": true,
+    "dJVPEgPTs": 1735084800000,
+    "gPcsfhEl_": "i4fLZyU8Z",
+    "Cgfgqj7KU": "https://www.figma.com/design/dcoUE3Rvxj5GGkqfDrLCRd/Smart-Kitchen-Management?node-id=0-1&t=0uD3VNRfXct8RJMu-1",
+    "ybgTKbfC1": "Rohith V Raj T M",
+    "J8sDnFjS0": "Tanvi Jain & Kuntalika Debnath",
+    "aaJdfYesh": "5 weeks",
+    "dMzbnq2mw": "A Smart Kitchen Management System designed to streamline restaurant operations by integrating inventory, staff, safety, recipe, and POS management into one unified platform. It enables real-time monitoring, data-driven decision-making, and predictive insights to reduce waste, improve efficiency, and ensure consistent service quality across outlets.",
+    "AtZcGqORN": {
+      "src": "https://framerusercontent.com/images/oVy09v8MrZ5q3KxMfy2CaC4Bbo.jpg?width=1365&height=802",
+      "srcSet": "https://framerusercontent.com/images/oVy09v8MrZ5q3KxMfy2CaC4Bbo.jpg?scale-down-to=512&width=1365&height=802 512w,https://framerusercontent.com/images/oVy09v8MrZ5q3KxMfy2CaC4Bbo.jpg?scale-down-to=1024&width=1365&height=802 1024w,https://framerusercontent.com/images/oVy09v8MrZ5q3KxMfy2CaC4Bbo.jpg?width=1365&height=802 1365w",
+      "pixelWidth": 1365,
+      "pixelHeight": 802,
+      "alt": "Featured Project Cover Image"
+    },
+    "XJMvwvNW0": {
+      "src": "https://framerusercontent.com/images/atTZKEa8L2JA3mrapvjmpVRi70.png?width=1440&height=1057",
+      "srcSet": "https://framerusercontent.com/images/atTZKEa8L2JA3mrapvjmpVRi70.png?scale-down-to=512&width=1440&height=1057 512w,https://framerusercontent.com/images/atTZKEa8L2JA3mrapvjmpVRi70.png?scale-down-to=1024&width=1440&height=1057 1024w,https://framerusercontent.com/images/atTZKEa8L2JA3mrapvjmpVRi70.png?width=1440&height=1057 1440w",
+      "pixelWidth": 1440,
+      "pixelHeight": 1057
+    },
+    "RQMgc6ez4": {
+      "src": "https://framerusercontent.com/images/8FNa8q1Df9IXtLbcCgeJfMITqQ.png?width=372&height=208",
+      "pixelWidth": 372,
+      "pixelHeight": 208
+    },
+    "khzsjimqK": {
+      "src": "https://framerusercontent.com/images/9NstWhjMcOyXTMVISmvUs0YAfGE.png?width=372&height=208",
+      "pixelWidth": 372,
+      "pixelHeight": 208
+    },
+    "FyPs61Ai9": {
+      "src": "https://framerusercontent.com/images/V3dM8G5w3WsDaQWdlZHWXxDIrvw.jpeg?width=1200&height=800",
+      "srcSet": "https://framerusercontent.com/images/V3dM8G5w3WsDaQWdlZHWXxDIrvw.jpeg?scale-down-to=512&width=1200&height=800 512w,https://framerusercontent.com/images/V3dM8G5w3WsDaQWdlZHWXxDIrvw.jpeg?scale-down-to=1024&width=1200&height=800 1024w,https://framerusercontent.com/images/V3dM8G5w3WsDaQWdlZHWXxDIrvw.jpeg?width=1200&height=800 1200w",
+      "pixelWidth": 1200,
+      "pixelHeight": 800
+    },
+    "BDYn_1i4J": "PROBLEM & RESEARCH UNDERSTANDING :",
+    "GUwUlkOlg": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We began by conducting primary research through field visits to restaurants, hotels, and cloud kitchens, along with interviews of owners, chefs, and staff. This helped us understand real operational workflows, challenges, and inefficiencies in daily kitchen management."
+        ],
+        [
+          4,
+          "br",
+          null
+        ],
+        [
+          5,
+          "We also analyzed existing systems to study how inventory, procurement, staff coordination, and safety processes are currently handled, identifying gaps such as lack of real-time visibility and structured tracking."
+        ]
+      ]
+    ],
+    "l_cB_OdHP": "INSIGHTS & OPPORTUNITY AREAS :",
+    "LCqLUxlhK": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We translated research findings into meaningful insights using affinity mapping, personas, and user journey mapping. This helped us identify patterns in user behavior and operational pain points across different roles."
+        ],
+        [
+          4,
+          "br",
+          null
+        ],
+        [
+          5,
+          "Based on this, we uncovered key opportunity areas such as smart data visibility, predictive procurement, centralized recipe management, improved staff accountability, and integrated communication systems for smoother operations."
+        ]
+      ]
+    ],
+    "lWBIMPM8u": "SOLUTION DESIGN (RASOI MITRA) :",
+    "Kdq3qCWEi": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "Based on the insights, we designed "
+        ],
+        [
+          4,
+          "strong",
+          null,
+          [
+            5,
+            "Rasoi Mitra"
+          ]
+        ],
+        [
+          5,
+          ", a smart kitchen management system that brings together inventory, procurement, POS, staff management, safety tracking, and recipe management into a single platform."
+        ],
+        [
+          4,
+          "br",
+          null
+        ],
+        [
+          5,
+          "The system focuses on providing real-time dashboards, predictive insights, and role-based access to help users manage operations efficiently, reduce waste, and make faster, data-driven decisions."
+        ]
+      ]
+    ],
+    "VlrhhnzCF": "UX & SYSTEM EXPERIENCE :",
+    "XlJpyojfY": [
+      1,
+      [
+        4,
+        "p",
+        {
+          "dir": "auto"
+        },
+        [
+          5,
+          "We developed end-to-end user flows, information architecture, and low-fidelity dashboard designs tailored for different user roles such as Owners, Chefs, and Managers."
+        ],
+        [
+          4,
+          "br",
+          null
+        ],
+        [
+          5,
+          "The experience is designed to be simple, intuitive, and efficient, enabling users to quickly access critical information, manage tasks, and navigate seamlessly across modules like inventory, staff, safety, and recipes."
+        ]
+      ]
+    ]
+  }
+]

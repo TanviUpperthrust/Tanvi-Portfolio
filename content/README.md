@@ -19,3 +19,9 @@ The source's Panchkalyanak and Smart Kitchen “View case study” buttons have 
 Biography, tools, process, portrait, phone and certificate details are defined in `src/portfolioProfile.js`. The main email is `tanvisjain108@gmail.com`, confirmed by Tanvi during this migration. Social links point to her actual Instagram and Behance profiles. No city is asserted because the source does not provide one.
 
 Imported project cover, year, prototype URL and ordered text/image sections are stored in SQLite and supported by the content API. Metadata edits preserve those sections. The current admin form edits the existing project fields; ordered imported sections can be updated through the admin API or a subsequent content change.
+
+## Updated Framer project content
+
+`framer-work.json` contains the five case studies from https://magenta-mission-235535.framer.app/, with their original overview text, creator/mentor credits, four research sections, Figma links, and 25 locally stored unique images. `framer-records.json` retains the published CMS fields used for extraction.
+
+`src/workContent.js` applies this content only on Work and project detail routes. It preserves the existing StreamBot project and adds the distinct Procurement and Inventory Management System project, bringing Work to six projects. Home and other pages continue using the original database content. No layout or styling changes are part of this update.

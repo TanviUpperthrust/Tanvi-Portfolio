@@ -1,0 +1,426 @@
+{
+  "sourceUrl": "https://magenta-mission-235535.framer.app/",
+  "projects": [
+    {
+      "title": "Two Factor Authentication",
+      "slug": "two-factor-authentication",
+      "category": "Usability Testing",
+      "tags": [
+        "Usability testing",
+        "Banking UX"
+      ],
+      "summary": "A comprehensive usability study exploring how two-factor authentication impacts user experience, security perception, and accessibility in Indian banking apps, highlighting key challenges and opportunities to create a more seamless and trustworthy digital banking experience",
+      "coverImage": "/assets/images/projects/framer/two-factor-authentication-AtZcGqORN.png",
+      "year": "",
+      "role": "",
+      "client": "",
+      "duration": "4 weeks",
+      "sections": [
+        {
+          "heading": "Project overview",
+          "body": "A comprehensive usability study exploring how two-factor authentication impacts user experience, security perception, and accessibility in Indian banking apps, highlighting key challenges and opportunities to create a more seamless and trustworthy digital banking experience",
+          "images": []
+        },
+        {
+          "heading": "Project credits",
+          "body": "Created by: Tanvi, Prathmesh, Nisha, Kshitij\n\nMentored by: Apoorva Gadgil Gijare",
+          "images": []
+        },
+        {
+          "heading": "RESEARCH & UNDERSTANDING",
+          "body": "We began by conducting secondary research to study how two-factor authentication is implemented across Indian banking apps. This helped us understand existing systems, security methods, and industry practices.\n\nWe also gathered insights on user behavior, focusing on how different users interact with authentication processes and what challenges they face during login and verification.",
+          "images": []
+        },
+        {
+          "heading": "Solution",
+          "body": "We conducted usability testing on multiple banking apps, focusing specifically on the login process involving 2FA methods such as OTP, biometrics, and authenticator apps. Users were asked to complete tasks while we observed their actions.\n\nWe measured key factors like task completion time, error rates, and user satisfaction to evaluate how efficient and user-friendly each authentication method is.",
+          "images": []
+        },
+        {
+          "heading": "Challenge",
+          "body": "The study revealed several usability issues, including OTP delays, dependency on network connectivity, and confusion during multi-step authentication. Users often felt frustrated when processes were slow or unclear.\n\nWe also found that while users value security, they prefer faster and simpler methods like biometrics, and tend to trust systems that are familiar and easy to use.",
+          "images": []
+        },
+        {
+          "heading": "Summary",
+          "body": "Based on the findings, we proposed improvements such as multi-modal authentication, allowing users to choose between OTP, biometrics, or authenticator apps for better flexibility.\n\nWe also suggested simplifying the login flow, improving error handling, and providing clear recovery options to create a smoother and more reliable authentication experience.",
+          "images": []
+        },
+        {
+          "heading": "Project images",
+          "body": "",
+          "images": [
+            {
+              "src": "/assets/images/projects/framer/two-factor-authentication-XJMvwvNW0.png",
+              "alt": "Two Factor Authentication - project image 1",
+              "caption": ""
+            },
+            {
+              "src": "/assets/images/projects/framer/two-factor-authentication-RQMgc6ez4.png",
+              "alt": "Two Factor Authentication - project image 2",
+              "caption": ""
+            },
+            {
+              "src": "/assets/images/projects/framer/two-factor-authentication-khzsjimqK.png",
+              "alt": "Two Factor Authentication - project image 3",
+              "caption": ""
+            },
+            {
+              "src": "/assets/images/projects/framer/two-factor-authentication-FyPs61Ai9.png",
+              "alt": "Two Factor Authentication - project image 4",
+              "caption": ""
+            },
+            {
+              "src": "/assets/images/projects/framer/two-factor-authentication-wFvjhOq6c.png",
+              "alt": "Two Factor Authentication - project image 5",
+              "caption": ""
+            }
+          ]
+        }
+      ],
+      "url": "https://www.figma.com/design/jRIZKXlCkbODUfShHFUWtW/Usability-Testing-Project?node-id=2013-646&t=dFYi8AvdpwNaFgzW-1",
+      "prototypeUrl": "",
+      "theme": "s4",
+      "layout": "wide",
+      "sort_order": 3,
+      "published": true,
+      "metrics": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "sourceUrl": "https://magenta-mission-235535.framer.app/projects/two-factor-authentication",
+      "sourceNotes": [
+        "The Framer page contains a category, title, summary, duration, creators, mentor, actions and one cover image. It contains no additional research/process/outcome sections or image-based case-study panels before More Projects.",
+        "Related-project recommendations, their repeated responsive images and generic template teaser copy, global navigation and footer were excluded.",
+        "The linked Behance gallery page returned HTTP 403 to direct fetch, and isolated Chrome returned HTTP ERROR 400. The public Behance embed is available but contains only a cropped cover and owner metadata, not the full project gallery. Full Behance case-study panels and text could not be recovered; no outcomes were invented.",
+        "The source shows a PROTOTYPE label, but it is not an anchor and has no prototype URL.",
+        "The Framer cover incorrectly links to https://www.behance.net/gallery/250671735/Movie-Recommendation-Chatbot. Use the VIEW CASE STUDY button URL for this project instead.",
+        "The public Behance embed confirms owner TANVI JAIN (https://www.behance.net/tanvijain39)."
+      ],
+      "template": false
+    },
+    {
+      "title": "Panchkalyanak Management System",
+      "slug": "panchkalyanak-management-system",
+      "category": "Service Design",
+      "tags": [
+        "Service design",
+        "Research"
+      ],
+      "summary": "A service design research project focused on understanding and improving the management system of Digambar Jain Panchkalyanak at Namokar Tirth. The project explores how large-scale spiritual events operate as temporary cities, highlighting challenges in accommodation, food systems, volunteer coordination, and information flow to design a more seamless and organized experience.",
+      "coverImage": "/assets/images/projects/framer/panchkalyanak-management-system-AtZcGqORN.jpg",
+      "year": "",
+      "role": "",
+      "client": "",
+      "duration": "5 weeks",
+      "sections": [
+        {
+          "heading": "Project overview",
+          "body": "A service design research project focused on understanding and improving the management system of Digambar Jain Panchkalyanak at Namokar Tirth. The project explores how large-scale spiritual events operate as temporary cities, highlighting challenges in accommodation, food systems, volunteer coordination, and information flow to design a more seamless and organized experience.",
+          "images": []
+        },
+        {
+          "heading": "Project credits",
+          "body": "Created by: Tanvi Jain\n\nMentored by: Shruti Deshpande",
+          "images": []
+        },
+        {
+          "heading": "RESEARCH & UNDERSTANDING",
+          "body": "We began by conducting secondary research to understand how large-scale religious events like Digambar Jain Panchkalyanak are organized. This helped us learn about existing systems, including accommodation, food services, volunteer coordination, and crowd management.\n\nWe also explored how such events function as temporary cities, where multiple services operate simultaneously. This helped us identify the complexity of managing spiritual events at such a large scale.",
+          "images": []
+        },
+        {
+          "heading": "Field Research & Observation",
+          "body": "We conducted primary research at Namokar Tirth Panchkalyanak through field visits and 15+ interviews with organizers, volunteers, food coordinators, security staff, and medical teams.\n\nWe observed real-time operations across different areas such as tent accommodation, bhojanshala, ahar distribution, stage management, and health camps. This helped us understand how the system works on ground and how people interact within it.",
+          "images": []
+        },
+        {
+          "heading": "Key Insights & Findings",
+          "body": "The research revealed several challenges in the current system, such as manual registration processes, lack of coordination between departments, confusion in food distribution areas, and heavy dependency on volunteers.\n\nWe found that while the event is well-managed through strong community effort, the absence of an integrated system leads to inefficiencies and confusion. At the same time, hospitality, devotion, and participation were very strong positive aspects.",
+          "images": []
+        },
+        {
+          "heading": "Design Direction",
+          "body": "Based on the findings, we proposed designing an integrated service management system to improve coordination across all event operations.\n\nThe focus is on creating a seamless experience by improving accommodation allocation, food system flow, volunteer management, and information access, while ensuring that religious practices and spiritual values remain untouched",
+          "images": []
+        },
+        {
+          "heading": "Project images",
+          "body": "",
+          "images": [
+            {
+              "src": "/assets/images/projects/framer/panchkalyanak-management-system-XJMvwvNW0.png",
+              "alt": "Panchkalyanak Management System - project image 1",
+              "caption": ""
+            },
+            {
+              "src": "/assets/images/projects/framer/panchkalyanak-management-system-RQMgc6ez4.png",
+              "alt": "Panchkalyanak Management System - project image 2",
+              "caption": ""
+            },
+            {
+              "src": "/assets/images/projects/framer/panchkalyanak-management-system-khzsjimqK.png",
+              "alt": "Panchkalyanak Management System - project image 3",
+              "caption": ""
+            }
+          ]
+        }
+      ],
+      "url": "https://www.figma.com/design/Ves2QNDshFuxFVYrVyYmPT/Service-Design-Project?node-id=0-1&t=zcJpUFg7e2nG331e-1",
+      "prototypeUrl": "https://ai.studio/apps/1b92889b-f17a-47b1-a780-34b7d23482f4",
+      "theme": "s2",
+      "layout": "wide",
+      "sort_order": 1,
+      "published": true,
+      "metrics": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "sourceUrl": "https://magenta-mission-235535.framer.app/projects/panchkalyanak-management-system",
+      "sourceNotes": [
+        "Category is inferred from the published project description.",
+        "Framer publishes an overview, project metadata and one main cover only; MORE PROJECTS grid images and the shared avatar are excluded from case-study images.",
+        "The main cover is wrapped in an unrelated Movie Recommendation Chatbot Behance link; that link is not used as this project’s case-study URL.",
+        "The VIEW CASE STUDY label has no href in the source HTML. No matching full case-study page was discoverable in the linked Behance profile.",
+        "The prototype URL redirects to Google sign-in; no protected content was accessed."
+      ],
+      "template": false
+    },
+    {
+      "slug": "procurement-and-inventory-management-system",
+      "title": "Procurement and Inventory Management System",
+      "category": "UI / UX Design",
+      "summary": "A user-centered digital solution designed to simplify procurement and inventory management for hotels, restaurants, and agriculture sectors. The system focuses on seamless vendor connection, real-time stock tracking, and efficient order management to reduce wastage and improve operational efficiency.",
+      "duration": "4 weeks",
+      "coverImage": "/assets/images/projects/framer/procurement-and-inventory-management-system-AtZcGqORN.png",
+      "sections": [
+        {
+          "heading": "Project overview",
+          "body": "A user-centered digital solution designed to simplify procurement and inventory management for hotels, restaurants, and agriculture sectors. The system focuses on seamless vendor connection, real-time stock tracking, and efficient order management to reduce wastage and improve operational efficiency.",
+          "images": []
+        },
+        {
+          "heading": "Project credits",
+          "body": "Created by: Tanvi Jain\n\nMentored by: Rohith V Raj T M",
+          "images": []
+        },
+        {
+          "heading": "Research & Problem Understanding",
+          "body": "Conducted primary and secondary research to understand how hotel owners and vendors currently manage procurement and inventory.\n\nThrough interviews and surveys, key pain points like manual tracking, stock mismanagement, and vendor miscommunication were identified. Competitor analysis helped in understanding existing gaps in the market and defining a focused problem statement.",
+          "images": []
+        },
+        {
+          "heading": "Information Architecture & User Flows",
+          "body": "Structured the system and mapped how users interact with the app.\n\nCreated detailed user flows for onboarding, ordering, and inventory management to ensure a smooth and logical experience. Developed sitemap and hierarchy to organize features like stock tracking, vendor connection, and payments in a simple and accessible way.",
+          "images": []
+        },
+        {
+          "heading": "UX/UI Design & Wireframing",
+          "body": "Delivered a complete digital solution addressing the identified problem.\n\nThe final app simplifies procurement and inventory management by integrating real-time stock updates, vendor ordering, and payment systems in one platform. The solution improves efficiency, reduces wastage, and enhances communication between hotels and vendors.",
+          "images": []
+        },
+        {
+          "heading": "Solution & Final Outcome",
+          "body": "The \"Intenza Brand Boutique E-Gift Card Design\" project successfully delivers a digital gift card that embodies both modern minimalism and the premium, active spirit of the brand. By combining a sleek black holder with a dynamic, fitness-inspired card image, the design stands out as both elegant and energetic.\n\nThis project demonstrates how thoughtful design can elevate a simple product into a powerful brand statement, enhancing the gifting experience for both giver and recipient.",
+          "images": []
+        },
+        {
+          "heading": "Project images",
+          "body": "",
+          "images": [
+            {
+              "src": "/assets/images/projects/framer/procurement-and-inventory-management-system-XJMvwvNW0.png",
+              "alt": "Procurement and Inventory Management System - project image 1",
+              "caption": ""
+            }
+          ]
+        }
+      ],
+      "url": "https://www.figma.com/design/NEmMBofW2TO4Kl5fiHCpeE/Untitled?node-id=0-1&t=ySy8Q3rSXhut7V0z-1",
+      "sourceUrl": "https://magenta-mission-235535.framer.app/projects/procurement-and-inventory-management-system",
+      "published": true,
+      "template": false
+    },
+    {
+      "title": "Noise Pollution in Festivals & Events",
+      "slug": "noise-pollution-festivals-events",
+      "category": "Design For Society",
+      "tags": [
+        "UX research",
+        "Social impact"
+      ],
+      "summary": "A research-driven design project exploring how noise from festivals and events impacts health, daily life, and urban communities, aiming to create balanced solutions between cultural celebration and community well-being.",
+      "coverImage": "/assets/images/projects/framer/noise-pollution-festivals-events-AtZcGqORN.jpg",
+      "year": "",
+      "role": "",
+      "client": "",
+      "duration": "4 weeks",
+      "sections": [
+        {
+          "heading": "Project overview",
+          "body": "A research-driven design project exploring how noise from festivals and events impacts health, daily life, and urban communities, aiming to create balanced solutions between cultural celebration and community well-being.",
+          "images": []
+        },
+        {
+          "heading": "Project credits",
+          "body": "Created by: Event / Festival\n\nMentored by: FestivalWorks",
+          "images": []
+        },
+        {
+          "heading": "RESEARCH & DISCOVERY",
+          "body": "In this project, we conducted primary research through interviews and surveys to understand how noise from festivals and events impacts people’s daily lives, health, and environment. We interacted with key stakeholders like residents, police, doctors, and shopkeepers to gather diverse real-world perspectives.\n\nThe research revealed patterns such as frequent exposure to loud noise, peak disturbance during evenings and nights, and strong effects on vulnerable groups like children, elderly, and students. These insights helped us build a clear understanding of the problem context.",
+          "images": []
+        },
+        {
+          "heading": "PROBLEM DEFINITION",
+          "body": "After analyzing the research data, we identified major issues including health impacts, ineffective complaint systems, and challenges faced by authorities in enforcing noise regulations. There was also a clear gap between awareness and actual behavior during festivals.\n\nWe framed a problem statement focusing on the conflict between cultural celebrations and community well-being, highlighting the need for a balanced approach that respects traditions while minimizing negative impacts on society.",
+          "images": []
+        },
+        {
+          "heading": "IDEATION & SOLUTION DESIGN",
+          "body": "Based on the defined problem, we explored multiple solution directions such as awareness systems, improved communication channels, and better coordination between stakeholders. The focus was on creating solutions that are practical, inclusive, and culturally sensitive.\n\nWe developed a concept that aims to reduce noise-related issues through structured systems and behavioral change, ensuring that festivals can be celebrated responsibly without compromising people’s health and daily life.",
+          "images": []
+        },
+        {
+          "heading": "TESTING & KEY INSIGHTS",
+          "body": "We evaluated our ideas through user feedback and usability thinking to understand how effective and acceptable the solutions are in real-world scenarios. This helped us identify gaps in usability, accessibility, and user trust.\n\nThe testing phase highlighted the importance of simple reporting systems, early planning, and awareness. It reinforced that solving noise pollution requires not just rules, but better communication, collaboration, and user-centered design.",
+          "images": []
+        },
+        {
+          "heading": "Project images",
+          "body": "",
+          "images": [
+            {
+              "src": "/assets/images/projects/framer/noise-pollution-festivals-events-XJMvwvNW0.png",
+              "alt": "Noise Pollution in Festivals & Events - project image 1",
+              "caption": ""
+            },
+            {
+              "src": "/assets/images/projects/framer/noise-pollution-festivals-events-RQMgc6ez4.png",
+              "alt": "Noise Pollution in Festivals & Events - project image 2",
+              "caption": "",
+              "fullWidth": true
+            },
+            {
+              "src": "/assets/images/projects/framer/noise-pollution-festivals-events-khzsjimqK.png",
+              "alt": "Noise Pollution in Festivals & Events - project image 3",
+              "caption": ""
+            },
+            {
+              "src": "/assets/images/projects/framer/noise-pollution-festivals-events-wFvjhOq6c.png",
+              "alt": "Noise Pollution in Festivals & Events - project image 5",
+              "caption": ""
+            }
+          ]
+        }
+      ],
+      "url": "2024",
+      "prototypeUrl": "https://curl-jog-09156379.figma.site/",
+      "theme": "s1",
+      "layout": "wide",
+      "sort_order": 0,
+      "published": true,
+      "metrics": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "sourceUrl": "https://magenta-mission-235535.framer.app/projects/summer-vibes-festival-campaign",
+      "sourceNotes": [
+        "Category is inferred from the published project description.",
+        "Framer publishes an overview, project metadata and one main cover only; MORE PROJECTS grid images and the shared avatar are excluded from case-study images.",
+        "The main cover is wrapped in an unrelated Movie Recommendation Chatbot Behance link; that link is not used as this project’s case-study URL.",
+        "Published creator “Event / Festival” and mentor “FestivalWorks” are unrelated template values and have been omitted from normalized creators/mentor; the raw extraction preserves them.",
+        "The linked Figma case deck resolves as Design for Society Jury, but its content renders on canvas and exposed no extractable document text or ordered gallery assets. The original case-study URL is retained.",
+        "The public prototype’s feature flow is preserved; demo metrics, testimonials, placeholder contact numbers and support claims are not treated as project outcomes or real endorsements."
+      ],
+      "template": false
+    },
+    {
+      "title": "Smart Kitchen Management System",
+      "slug": "smart-kitchen-management-system",
+      "category": "Dashboard Design",
+      "tags": [
+        "Dashboard design",
+        "Product design"
+      ],
+      "summary": "A Smart Kitchen Management System designed to streamline restaurant operations by integrating inventory, staff, safety, recipe, and POS management into one unified platform. It enables real-time monitoring, data-driven decision-making, and predictive insights to reduce waste, improve efficiency, and ensure consistent service quality across outlets.",
+      "coverImage": "/assets/images/projects/framer/smart-kitchen-management-system-AtZcGqORN.jpg",
+      "year": "",
+      "role": "",
+      "client": "",
+      "duration": "5 weeks",
+      "sections": [
+        {
+          "heading": "Project overview",
+          "body": "A Smart Kitchen Management System designed to streamline restaurant operations by integrating inventory, staff, safety, recipe, and POS management into one unified platform. It enables real-time monitoring, data-driven decision-making, and predictive insights to reduce waste, improve efficiency, and ensure consistent service quality across outlets.",
+          "images": []
+        },
+        {
+          "heading": "Project credits",
+          "body": "Created by: Tanvi Jain & Kuntalika Debnath\n\nMentored by: Rohith V Raj T M",
+          "images": []
+        },
+        {
+          "heading": "PROBLEM & RESEARCH UNDERSTANDING",
+          "body": "We began by conducting primary research through field visits to restaurants, hotels, and cloud kitchens, along with interviews of owners, chefs, and staff. This helped us understand real operational workflows, challenges, and inefficiencies in daily kitchen management.We also analyzed existing systems to study how inventory, procurement, staff coordination, and safety processes are currently handled, identifying gaps such as lack of real-time visibility and structured tracking.",
+          "images": []
+        },
+        {
+          "heading": "INSIGHTS & OPPORTUNITY AREAS",
+          "body": "We translated research findings into meaningful insights using affinity mapping, personas, and user journey mapping. This helped us identify patterns in user behavior and operational pain points across different roles.Based on this, we uncovered key opportunity areas such as smart data visibility, predictive procurement, centralized recipe management, improved staff accountability, and integrated communication systems for smoother operations.",
+          "images": []
+        },
+        {
+          "heading": "SOLUTION DESIGN (RASOI MITRA)",
+          "body": "Based on the insights, we designed Rasoi Mitra, a smart kitchen management system that brings together inventory, procurement, POS, staff management, safety tracking, and recipe management into a single platform.The system focuses on providing real-time dashboards, predictive insights, and role-based access to help users manage operations efficiently, reduce waste, and make faster, data-driven decisions.",
+          "images": []
+        },
+        {
+          "heading": "UX & SYSTEM EXPERIENCE",
+          "body": "We developed end-to-end user flows, information architecture, and low-fidelity dashboard designs tailored for different user roles such as Owners, Chefs, and Managers.The experience is designed to be simple, intuitive, and efficient, enabling users to quickly access critical information, manage tasks, and navigate seamlessly across modules like inventory, staff, safety, and recipes.",
+          "images": []
+        },
+        {
+          "heading": "Project images",
+          "body": "",
+          "images": [
+            {
+              "src": "/assets/images/projects/framer/smart-kitchen-management-system-XJMvwvNW0.png",
+              "alt": "Smart Kitchen Management System - project image 1",
+              "caption": ""
+            },
+            {
+              "src": "/assets/images/projects/framer/smart-kitchen-management-system-RQMgc6ez4.png",
+              "alt": "Smart Kitchen Management System - project image 2",
+              "caption": ""
+            },
+            {
+              "src": "/assets/images/projects/framer/smart-kitchen-management-system-khzsjimqK.png",
+              "alt": "Smart Kitchen Management System - project image 3",
+              "caption": ""
+            }
+          ]
+        }
+      ],
+      "url": "https://www.figma.com/design/dcoUE3Rvxj5GGkqfDrLCRd/Smart-Kitchen-Management?node-id=0-1&t=0uD3VNRfXct8RJMu-1",
+      "prototypeUrl": "",
+      "theme": "s3",
+      "layout": "wide",
+      "sort_order": 2,
+      "published": true,
+      "metrics": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "sourceUrl": "https://magenta-mission-235535.framer.app/projects/smart-kitchen-management-system",
+      "sourceNotes": [
+        "Category is inferred from the published project description.",
+        "Framer publishes an overview, project metadata and one main cover only; MORE PROJECTS grid images and the shared avatar are excluded from case-study images.",
+        "The main cover is wrapped in an unrelated Movie Recommendation Chatbot Behance link; that link is not used as this project’s case-study URL.",
+        "The VIEW CASE STUDY label has no href in the source HTML. No matching full case-study page was discoverable in the linked Behance profile.",
+        "The PROTOTYPE label has no href in the source HTML."
+      ],
+      "template": false
+    }
+  ]
+}

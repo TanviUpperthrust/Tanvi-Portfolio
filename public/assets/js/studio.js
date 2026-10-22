@@ -476,6 +476,7 @@
       if (!element) return;
       element.classList.toggle('is-link', enabled);
       element.classList.toggle('is-footer', !!hoveredFooter);
+      element.classList.toggle('is-service', enabled && link.classList.contains('simple-service'));
     });
     if (cursorLabel) cursorLabel.textContent = enabled ? (link.getAttribute('data-cursor-label') || link.getAttribute('data-cursor') || '') : '';
   }

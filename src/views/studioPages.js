@@ -3,6 +3,7 @@ import { layout } from './layout.js';
 import { projectArt } from './studioParts.js';
 import { STUDIO_SERVICES } from '../studioServices.js';
 import { TOPICS, BUDGETS } from '../content.js';
+import { toolLogo, serviceToolChips } from './toolkit.js';
 import { PROFILE } from '../portfolioProfile.js';
 
 const PROCESS = PROFILE.process;
@@ -26,19 +27,19 @@ function processGrid(steps = PROCESS) {
 export function aboutPage({ site, siteUrl }) {
   const body = html`${pageHero('About', 'THE PERSON BEHIND THE PIXELS')}
   <section class="about-intro page-wrap">
-    <div class="about-portrait-wrap"><figure class="about-portrait about-portrait-real" data-reveal data-tilt><img class="about-portrait-image" src="${PROFILE.portrait}" alt="Illustrated portrait of Tanvi Jain" width="632" height="767" decoding="async" fetchpriority="high"/><figcaption class="portrait-caption"><span>Tanvi Jain</span><span>UI / UX designer</span></figcaption></figure></div>
+    <div class="about-portrait-wrap"><figure class="about-portrait about-portrait-real" data-reveal data-tilt><img class="about-portrait-image" src="${PROFILE.portrait}" alt="Illustrated portrait of Tanvi Jain" width="632" height="767" decoding="async" fetchpriority="high"/></figure></div>
     <div class="story-copy"><p class="about-lead" data-reveal>${PROFILE.aboutParagraphs[0]}</p>
       <div class="about-body" data-reveal>${PROFILE.aboutParagraphs.slice(1).map((paragraph) => html`<p>${paragraph}</p>`)}</div>
-      <section class="toolkit"><h2 class="section-label" data-reveal>Toolkit</h2><ul class="tool-list imported-tool-list" data-reveal>${PROFILE.toolkit.map((tool) => html`<li><span>${tool}</span><small>${PROFILE.toolkitDescriptions[tool]}</small></li>`)}</ul></section>
+      <section class="toolkit"><h2 class="section-label" data-reveal>Toolkit</h2><ul class="tool-list imported-tool-list" data-reveal>${PROFILE.toolkit.map((tool) => html`<li>${toolLogo(tool)}<div><span>${tool}</span><small>${PROFILE.toolkitDescriptions[tool]}</small></div></li>`)}</ul></section>
       <div class="about-links" data-reveal><a class="outline-button" href="${PROFILE.resumeUrl}" target="_blank" rel="noopener">View résumé <span aria-hidden="true">↗</span></a><a class="text-link" href="/contact">Let's work together <span aria-hidden="true">↗</span></a></div>
     </div>
   </section>
-  <section class="process-section about-process page-wrap"><div class="section-heading"><h2 class="section-label" data-reveal>Design with strategy and creativity</h2><p class="process-intro" data-reveal>${PROFILE.processIntro}</p></div>${processGrid()}</section>`;
+  <section class="process-section about-process page-wrap"><div class="about-process-heading"><h2 class="section-label" data-reveal>Design with strategy and creativity</h2><p class="process-intro" data-reveal>${PROFILE.processIntro}</p></div>${processGrid()}</section>`;
   return layout({ title: 'About Tanvi · UI / UX Designer', description: PROFILE.aboutParagraphs[0], path: '/about', siteUrl, site, body });
 }
 
 export function workPage({ site, siteUrl, projects = [] }) {
-  const body = html`<section class="page-hero work-page-hero"><div class="page-wrap work-page-heading"><div><p class="page-eyebrow" data-reveal>SELECTED IDEAS. CONSIDERED DETAILS.</p><h1 class="display-title" data-kinetic>Work <sup class="project-count">(${String(projects.length).padStart(2, '0')})</sup></h1></div><div class="view-toggle" role="group" aria-label="Project view"><button type="button" data-work-view="list" aria-pressed="true">List</button><button type="button" data-work-view="grid" aria-pressed="false">Grid</button></div></div></section>
+  const body = html`<section class="page-hero work-page-hero"><div class="page-wrap work-page-heading"><div><p class="page-eyebrow" data-reveal>SELECTED IDEAS. CONSIDERED DETAILS.</p><h1 class="display-title" data-kinetic>Work</h1></div><div class="view-toggle" role="group" aria-label="Project view"><button type="button" data-work-view="list" aria-pressed="true">List</button><button type="button" data-work-view="grid" aria-pressed="false">Grid</button></div></div></section>
   <section class="work-collection page-wrap" data-view="list" aria-label="Portfolio projects">
     <div class="work-table" data-view-panel="list"><div class="work-table-head" aria-hidden="true"><span>#</span><span>Project</span><span>Type</span><span>Role</span><span>Year</span></div>
       ${projects.map((project, index) => html`<a class="work-table-row" href="/work/${project.slug}" data-project-preview="${index}" data-reveal data-cursor="View"><span class="work-table-number">${String(index + 1).padStart(2, '0')}</span><h3 class="work-table-name">${project.title}</h3><span class="work-table-type">${project.template ? 'Case study coming soon' : project.category}</span><span class="work-table-role">UI / UX design</span><span class="work-table-year">${project.template ? '—' : project.year || '—'}</span><span class="row-preview" aria-hidden="true">${projectArt(project)}</span></a>`)}
@@ -50,11 +51,19 @@ export function workPage({ site, siteUrl, projects = [] }) {
 }
 
 export function servicesPage({ site, siteUrl }) {
-  const body = html`${pageHero('Services', 'THOUGHTFUL DESIGN, FROM THE FIRST QUESTION.', 'A few ways I can help. A project can bring together one service or several.')}
-  <section class="service-list page-wrap" aria-label="Design services">${STUDIO_SERVICES.map((service, index) => html`<a class="service-row" href="/services/${service.slug}" data-reveal data-cursor="Open"><span class="service-number">${String(index + 1).padStart(2, '0')}</span><div class="service-row-copy"><h2>${service.title}</h2><p>${service.description}</p></div><ul class="service-tags">${service.tags.map((tag) => html`<li>${tag}</li>`)}</ul><span class="service-arrow" aria-hidden="true">↗</span></a>`)}</section>
-  <section class="process-section page-wrap"><h2 class="section-label" data-reveal>How we can work together</h2>${processGrid()}</section>
-  <section class="engagement-section page-wrap"><h2 class="section-label" data-reveal>Find the right shape for the work</h2><div class="engagement-grid"><article class="engagement-card" data-reveal><span class="section-number">01</span><h3>Focused project</h3><p>A clear design question, an agreed scope and a set of useful deliverables. A good place to start with a new product, feature or redesign.</p><span class="engagement-note">Scope and quote on enquiry</span></article><article class="engagement-card" data-reveal><span class="section-number">02</span><h3>Design partnership</h3><p>Ongoing design support as your product evolves, with room for research, new journeys, interface improvements and the details in between.</p><span class="engagement-note">A working rhythm agreed together</span></article></div></section>`;
-  return layout({ title: 'Services · Tanvi · UI / UX Designer', description: 'Product design, UX research, UI design, design systems and prototyping with Tanvi.', path: '/services', siteUrl, site, body });
+  const descriptions = [
+    'Website and mobile app design, user flows, wireframes, interactive prototypes, design systems and dashboard interfaces.',
+    'Corporate websites, landing pages and service pages with responsive layouts, clear navigation and content hierarchy.',
+    'AI-assisted UI concepts, prompt development, visual assets, creative exploration and rapid prototyping.',
+    'Chatbot interfaces, conversation flows, assistant layouts and response states for clear human-AI interactions.',
+    'Responsive web interfaces, HTML/CSS implementation, JavaScript interactions and design-to-code refinements.',
+    'Brand-consistent website visuals, social posts, carousels, reels and campaign creatives.',
+    'Usability reviews, heuristic evaluations, competitor research and accessibility audits with practical recommendations.',
+  ];
+  const body = html`<section class="simple-services-hero page-wrap"><p class="page-eyebrow">SERVICES</p><h1>Thoughtful design.<br><em>Useful digital experiences.</em></h1><p>UI/UX design, AI-assisted creative work and frontend development. Here's how I can help.</p></section>
+  <section class="services-offerings simple-services page-wrap" id="offerings" aria-label="Design services">${STUDIO_SERVICES.map((service, index) => html`<a class="simple-service" data-cursor-label="&#8599;" href="/services/${service.slug}"><span class="simple-service-number">${String(index + 1).padStart(2, '0')}</span><h2>${service.title}</h2><div class="simple-service-content"><p>${descriptions[index]}</p>${serviceToolChips(service.slug)}</div><span class="simple-service-arrow" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a>`)}</section>`;
+
+  return layout({ title: 'Services · Tanvi · UI / UX Designer', description: 'UI/UX design, website design, AI-powered design, chatbot UX, frontend development, brand content and accessibility with Tanvi.', path: '/services', siteUrl, site, body });
 }
 
 export function serviceDetailPage({ site, siteUrl, projects = [], service, slug }) {
