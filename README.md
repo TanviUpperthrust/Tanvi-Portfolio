@@ -166,3 +166,9 @@ public/assets/js/theme.js saved-theme initializer used by the admin shell
 public/admin.html       admin panel shell
 test/                   API and page tests (node --test)
 ```
+
+## Public GitHub Pages site
+
+Run `node scripts/export-static.mjs` to export the current public portfolio from the local database into ignored `dist/`. The export includes 18 public pages and local assets, with paths configured for `https://tanvijain108.github.io/Tanvi-Portfolio/`. Contact enquiries open a drafted email; the Node contact inbox and admin panel remain available only in the server app.
+
+The published files live on the `gh-pages` branch. The source remains on `main` and `feature/frontend`. `node scripts/github-pages.mjs status` checks deployment status using the owner account in Git Credential Manager without storing credentials in the project.
